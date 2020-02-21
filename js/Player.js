@@ -1,9 +1,12 @@
 class Player {
 
-    constructor(x, y, image) {
-        this.x = x;
-        this.y = y;
+    constructor(image) {
+        this.pions = Array();
         this.image = image;
+
+        for (let i = 0; i < 5; i++) {
+            this.pions[i].push(new Pion(Orientation.NORD));
+        }
     }
 
 }

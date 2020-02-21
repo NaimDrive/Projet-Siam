@@ -12,8 +12,24 @@ class Plateau {
         }
     }
 
+    /**
+     * Affiche le plateau.
+     */
     afficherTableau() {
         console.log(this.tableau);
     }
+
+    /**
+     * Déplace tous les éléments d'une colonne vers le haut ou vers le bas.
+     */
+    pousserColonne() {
+        
+    }
     
+    /**
+     * Déplace tous les éléments d'une ligne vers la droite ou vers la gauche.
+     */
+    pousserLigne() {
+
+    }
 }

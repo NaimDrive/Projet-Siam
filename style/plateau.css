@@ -2,22 +2,20 @@
     margin-top: 2%;
 }
 
+.box-game {
+    height: 500px;
+}
+
 table {
-    width: 90%;
+    width: 35%;
     margin: auto;
-    border-spacing : 18px;
+    border-spacing : 5px;
+    background-color: saddlebrown;
 }
 
 td {
     height: 100px;
-    width: auto;
+    width: 19%;
     border: 1px solid;
-}
-
-.table-test {
-    background-image: url("../images/plateau.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 60%;
-    margin: auto;
+    background-color: beige;
 }
