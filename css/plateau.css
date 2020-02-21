@@ -1,0 +1,23 @@
+.plateau {
+    margin-top: 2%;
+}
+
+table {
+    width: 90%;
+    margin: auto;
+    border-spacing : 18px;
+}
+
+td {
+    height: 100px;
+    width: auto;
+    border: 1px solid;
+}
+
+.table-test {
+    background-image: url("../images/plateau.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 60%;
+    margin: auto;
+}
