@@ -14,7 +14,7 @@
   $mytable = "users";
 
   $query = "CREATE TABLE IF NOT EXISTS $mytable (
-                ID bigint(20) NOT NULL PRIMARY KEY,
+                id INTEGER PRIMARY KEY,
                 pseudo VARCHAR(50) NOT NULL,
                 password VARCHAR(50) NOT NULL
             )";
@@ -25,6 +25,25 @@
     echo $base->lastErrorMsg();
   }
 
+  $requete = "INSERT INTO $mytable (pseudo, password) VALUES
+              ('admin', 'admin'),
+              ('Naim', 'bg'),
+              ('Baptiste', 'bg')";
 
+  $base->exec($requete);
+
+  $requete2 = "select * from users";
+
+  $result = $base->query($requete2);
+
+  while($row = $result->fetchArray()) {
+    // echo "<h2>".$row['pseudo']." ".$row['password']."</h2>";
+    echo "<h2>";
+    print_r($row);
+    echo "</h2>";
+    
+    // echo "woaw ! <br>";
+  }
+  
 
 ?>
