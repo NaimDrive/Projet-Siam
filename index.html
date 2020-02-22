@@ -20,8 +20,19 @@
                 <a href="game.html" role="button" class="btn btn-dark m-3">Jouer</a>
                 <a href="regles.html" role="button" class="btn btn-info m-3">Règles du jeu</a>
             </div>
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center ">
                 <button id="exemple" class="btn btn-success m-3">Exemple d'Ajax</button>
+            </div>
+            <div id="exemple_ajax" class="d-flex justify-content-center m-5">
+                <table id="table_ajax" class="table table-dark">
+                    <thead>
+                        <tr style="text-align: center;">
+                          <th id="user1" scope="col"></th>
+                          <th id="user2" scope="col"></th>
+                          <th id="user3" scope="col"></th>
+                        </tr>
+                      </thead>
+                </table>
             </div>
         </div>
 
@@ -30,17 +41,24 @@
 <script src="js/jquery3.4.1.js"></script>
 <script>
     $(document).ready(function () {
-        console.log("Ready !");
+        $("#exemple_ajax, #table_ajax").hide();
+        $("#exemple").click(function() {
             $.ajax({
                 type: "POST",
                 url: "ajax/inscription.ajax.php?act=getUsers",
-                //data: "data",
-                dataType: "json",
-            }).always(function(response) {
-                // console.log("Finished !");
-                console.log("reponse : " + response);
+                contentType: 'application/json',
+                cache: false,
+                dataType: 'json'
+            }).done(function(response) {
+
+                $("#exemple_ajax, #table_ajax").show();
+
+                $("#user1").html(response[1]);
+                $("#user2").html(response[2]);
+                $("#user3").html(response[3]);
+                
             });
-        console.log("AJAX passed !");
+        });
     });
     
 </script>

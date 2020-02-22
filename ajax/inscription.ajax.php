@@ -4,10 +4,15 @@
 
     function getUsers() {
         $users = array();
-        $result = requeteBDD("SELECT * FROM users");
+        $output = requeteBDD("SELECT * FROM users");
+        $result = array();
 
-
-        return json_encode(array(1,2,3,4));
+        foreach($output as $res) {
+            // array_push($result, $res);
+            $result[$res["id"]] = $res["pseudo"];
+        }
+        
+        print_r(json_encode($result));
     }
 
 
