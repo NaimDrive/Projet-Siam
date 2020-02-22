@@ -48,7 +48,8 @@
                 url: "ajax/inscription.ajax.php?act=getUsers",
                 contentType: 'application/json',
                 cache: false,
-                dataType: 'json'
+                dataType: 'json',
+                crossDomain: true
             }).done(function(response) {
 
                 $("#exemple_ajax, #table_ajax").show();
