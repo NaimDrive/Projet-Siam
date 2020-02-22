@@ -7,3 +7,11 @@ var Orientation = {
     EST: 3,
     OUEST : 4
 };
+
+/**
+ * Enumération des types d'animaux possible.
+ */
+var Animal = {
+    ELEPHANT : 1,
+    RHINOCEROS : 2
+}
