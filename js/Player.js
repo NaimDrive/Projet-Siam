@@ -3,19 +3,25 @@ class Player {
     constructor(animal) {
         this.pions = new Array();
         this.animal = animal;
-        this.image = new Images(animal);
 
         for (let i = 0; i < 5; i++) {
-            this.pions.push(new Pion(Orientation.NORD));
+            this.pions.push(new Animaux(Orientation.NORD, animal));
         }
     }
 
     /**
-     * Retourne l'image à afficher en fonction de l'orientation du pion.
-     * @param {Pion} pion 
+     * Retourne le tableau de pions.
      */
-    getImageToDisplay() {
-        return this.image.getImage(this.pions[0].getOrientation());
+    getPions() {
+        return this.pions;
     }
 
+    /**
+     * Retourne le pion à la position i.
+     */
+    getPion(i) {
+        if(i >= 0 && i < this.pions.length)
+            return this.pions[i];
+        return null;
+    }
 }

@@ -9,9 +9,11 @@ var Orientation = {
 };
 
 /**
- * Enumération des types d'animaux possible.
+ * Enumération des types d'éléments du plateau possible.
  */
-var Animal = {
+var ElementPlateau = {
     ELEPHANT : 1,
-    RHINOCEROS : 2
+    RHINOCEROS : 2,
+    ROCHER : 3,
+    NULL_OBJECT : 4
 }
