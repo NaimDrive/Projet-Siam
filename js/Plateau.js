@@ -19,13 +19,16 @@ class Plateau {
         console.log(this.tableau);
     }
 
+    /**
+     * Affiche toutes les images du plateau dans le tableau html.
+     */
     afficherImages() {
+        let enfants = document.getElementById("div-tableau").children;
+
         for (let i = 0; i < this.TAILLE_PLATEAU; i++) {
-            let tmp = "";
             for (let j = 0; j < this.TAILLE_PLATEAU; j++) {
-                tmp += this.tableau[i][j].getImageToDisplay() + " ";                
+                enfants[i].children[j].innerHTML = "<img src='"+this.tableau[i][j].getImageToDisplay()+"'>";
             }
-            console.log(tmp);
         }
     }
 

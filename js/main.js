@@ -42,6 +42,7 @@ function initGame() {
 
     // Pour les tests
     plateau.tableau[0][0] = joueur1.getPion(0);
+    plateau.tableau[4][3] = joueur2.getPion(3);
 }
 
 initGame();

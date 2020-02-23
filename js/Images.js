@@ -3,20 +3,17 @@ class Images {
     constructor(image) {
         this.images = new Array();
         if(image == ElementPlateau.ELEPHANT) {
-            this.images.push("/images/10.gif");
-            this.images.push("/images/11.gif");
-            this.images.push("/images/12.gif");
-            this.images.push("/images/13.gif");
-            console.log("Vive l'éléphant !");
+            this.images.push("images/10.gif");
+            this.images.push("images/11.gif");
+            this.images.push("images/12.gif");
+            this.images.push("images/13.gif");
         } else if(image == ElementPlateau.RHINOCEROS) {
-            this.images.push("/images/20.gif");
-            this.images.push("/images/21.gif");
-            this.images.push("/images/22.gif");
-            this.images.push("/images/23.gif");
-            console.log("Vive le rhinocéros !");
+            this.images.push("images/20.gif");
+            this.images.push("images/21.gif");
+            this.images.push("images/22.gif");
+            this.images.push("images/23.gif");
         } else if(image == ElementPlateau.ROCHER) {
-            this.images.push("/images/rocher.gif");
-            console.log("Vive le rocher !");
+            this.images.push("images/rocher.gif");
         } else {
             this.images.push("");
         }
