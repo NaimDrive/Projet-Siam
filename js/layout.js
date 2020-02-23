@@ -7,7 +7,8 @@ $(document).ready(function () {
 
     $.get("/layout/footer.html",
         function(response) {
-            $("body").append(response);
+            $("body>div:last").after().append(response);
+            $("#footer").insertAfter("body>div:last");
         }
     );
 });
