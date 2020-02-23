@@ -7,10 +7,10 @@
         <!-- <link rel="stylesheet" href="css/style.css"> -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+        
         <title>Projet Siam</title>
     </head>
     <body>
-
         <div class="d-flex justify-content-center mt-5">
             <img class="align-content-center" src="images/logo_sia.gif" alt="">
         </div>
@@ -35,15 +35,15 @@
                 </table>
             </div>
         </div>
-
     </body>
 </html>
 <script src="js/jquery3.4.1.js"></script>
+<script src="js/layout.js"></script>
 <script>
     $(document).ready(function () {
         $("#exemple_ajax, #table_ajax").hide();
         $("#exemple").click(function() {
-            $.ajax({
+            /*$.ajax({
                 type: "POST",
                 url: "ajax/inscription.ajax.php?act=getUsers",
                 contentType: 'application/json',
@@ -58,6 +58,15 @@
                 $("#user2").html(response[2]);
                 $("#user3").html(response[3]);
                 
+            });*/
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                url: "ajax/inscription.ajax.php?act=isOnline",
+                // data: "data",
+            }).done(function(response) {
+                console.log(response);
             });
         });
     });
