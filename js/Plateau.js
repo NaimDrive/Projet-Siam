@@ -33,7 +33,7 @@ class Plateau {
     }
 
     /**
-     * Place un pion aux coordonnées (i, j).
+     * Place un pion aux coordonnées (x, y) en supprimant le NullObject.
      * @param {Pion} pion 
      * @param {int} x 
      * @param {int} y 
@@ -45,9 +45,22 @@ class Plateau {
         if(y < 0 && y >= this.tableau.length) {
             console.log("y hors du tableau");
         }
+        if(pion.estPlace()) {
+            this.enleverPion(pion);
+        }
+
+        delete this.tableau[x][y];
         this.tableau[x][y] = pion;
         pion.placerPion(x,y);
-        pion.place = true;
+    }
+
+    /**
+     * Enlève le pion du tableau et le remplace par un NullObject.
+     * @param {Pion} pion 
+     */
+    enleverPion(pion) {
+        this.tableau[pion.getX()][pion.getY()] = new NullObject(ElementPlateau.NULL_OBJECT);
+        pion.enleverPion();
     }
 
     /**

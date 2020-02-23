@@ -5,4 +5,5 @@ table {
 
 .row>div {
     min-height: 80px;
+    background-color: rgb(145, 145, 145);
 }

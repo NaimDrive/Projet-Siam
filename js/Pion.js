@@ -15,5 +15,36 @@ class Pion {
     placerPion(x, y) {
         this.x = x;
         this.y = y;
+        this.place = true;
+    }
+
+    /**
+     * Enlève un pion du plateau.
+     */
+    enleverPion() {
+        this.x = -1;
+        this.y = -1;
+        this.place = false;
+    }
+
+    /**
+     * Retourne true si le pion est placé, false sinon.
+     */
+    estPlace() {
+        return this.place;
+    }
+
+    /**
+     * Retourne la coordonnée x.
+     */
+    getX() {
+        return this.x;
+    }
+
+    /**
+     * Retourne la coordonnée y.
+     */
+    getY() {
+        return this.y;
     }
 }

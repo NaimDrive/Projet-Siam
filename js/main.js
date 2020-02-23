@@ -41,10 +41,13 @@ function initGame() {
     initPlateau();
 
     // Pour les tests
-    plateau.tableau[0][0] = joueur1.getPion(0);
-    plateau.tableau[4][3] = joueur2.getPion(3);
+    plateau.placerPion(joueur1.getPion(0), 0, 0);
+    plateau.placerPion(joueur1.getPion(0), 1, 0);
+    plateau.placerPion(joueur2.getPion(3), 4, 3);
 }
 
 initGame();
 plateau.afficherTableau();
 plateau.afficherImages();
+joueur1.afficherInventaire(1);
+joueur2.afficherInventaire(2);
