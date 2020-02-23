@@ -18,3 +18,9 @@ footer{
     height: 3em;
     background-color: #222222;
 }
+
+footer>ul{
+    color: white;
+    /*display: inline-block;
+    vertical-align: middle;*/
+}
