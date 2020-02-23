@@ -1,6 +1,7 @@
 <?php
 
     include "gestionRequeteBDD.ajax.php";
+    include "test.ajax.php";
 
     function getUsers() {
         $users = array();
@@ -15,12 +16,18 @@
         print_r(json_encode($result));
     }
 
+    function isOnline() {
+        print_r(json_encode($_SESSION));
+    }
+
 
     switch ($_GET["act"]) {
         case 'getUsers':
             getUsers();
             break;
-        
+        case 'isOnline':
+            isOnline();
+            break;
         default:
             # code...
             break;
