@@ -23,7 +23,7 @@ class Plateau {
      * Affiche toutes les images du plateau dans le tableau html.
      */
     afficherImages() {
-        let enfants = document.getElementById("div-tableau").children;
+        let enfants = $("#div-tableau").children();
 
         for (let i = 0; i < this.TAILLE_PLATEAU; i++) {
             for (let j = 0; j < this.TAILLE_PLATEAU; j++) {
