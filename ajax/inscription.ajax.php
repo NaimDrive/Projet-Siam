@@ -17,7 +17,9 @@
     }
 
     function isOnline() {
-        print_r(json_encode($_SESSION));
+        session_start();
+        echo "cacahuette";
+        return $_SESSION["username"];
     }
 
 

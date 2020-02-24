@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/plateau.css">
         <title>Projet Siam</title>
     </head>
@@ -73,7 +74,7 @@
         
     </body>
     <script src="js/jquery3.4.1.js"></script>
-    <!-- <script src="js/layout.js"></script> -->
+    <script src="js/layout.js"></script>
     <script src="js/Enumerations.js"></script>
     <script src="js/Images.js"></script>
     <script src="js/Pion.js"></script>
@@ -83,4 +84,9 @@
     <script src="js/Player.js"></script>
     <script src="js/Plateau.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        <?php session_start(); ?>;
+        var session = <?php echo json_encode($_SESSION); ?>;
+        initLayout(session);
+    </script>
 </html>

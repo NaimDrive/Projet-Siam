@@ -19,7 +19,7 @@
 
         <div class="container pt-5">
             <div class="d-flex justify-content-center">
-                <a href="game.html" role="button" class="btn btn-dark m-3">Jouer</a>
+                <a href="game.php" role="button" class="btn btn-dark m-3">Jouer</a>
                 <a href="regles.html" role="button" class="btn btn-info m-3">Règles du jeu</a>
             </div>
             <div class="d-flex justify-content-center ">
@@ -43,10 +43,14 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/layout.js"></script>
 <script>
+    <?php session_start(); ?>;
+    var session = <?php echo json_encode($_SESSION); ?>;
+    initLayout(session);
+
     $(document).ready(function () {
         $("#exemple_ajax, #table_ajax").hide();
-        $("#exemple").click(function() {
-            /*$.ajax({
+       /*$("#exemple").click(function() {
+            $.ajax({
                 type: "POST",
                 url: "ajax/inscription.ajax.php?act=getUsers",
                 contentType: 'application/json',
@@ -61,17 +65,8 @@
                 $("#user2").html(response[2]);
                 $("#user3").html(response[3]);
                 
-            });*/
-            $.ajax({
-                type: "POST",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                url: "ajax/inscription.ajax.php?act=isOnline",
-                // data: "data",
-            }).done(function(response) {
-                console.log(response);
             });
-        });
+        });*/
     });
     
 </script>
