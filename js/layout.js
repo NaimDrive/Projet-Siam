@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $.get("/layout/header.html",
+    $.get("/layout/header_unlogged.html",
         function(response) {
             $("body").prepend(response);
         }
