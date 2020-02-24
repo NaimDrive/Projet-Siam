@@ -1,7 +1,9 @@
 class NullObject extends Pion {
 
-    constructor(image) {
+    constructor(image, x, y) {
         super(image);
+        this.x = x;
+        this.y = y;
     }
 
     /**
@@ -9,6 +11,10 @@ class NullObject extends Pion {
      */
     getImageToDisplay() {
         return this.image.getImageNullObject();
+    }
+
+    toString() {
+        return "NullObject";
     }
 
 }

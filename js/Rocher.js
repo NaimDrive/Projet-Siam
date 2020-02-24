@@ -10,4 +10,8 @@ class Rocher extends Pion {
     getImageToDisplay() {
         return this.image.getImageRocher();
     }
+
+    toString() {
+        return "Rocher";
+    }
 }

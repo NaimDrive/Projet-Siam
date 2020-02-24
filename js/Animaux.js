@@ -65,4 +65,8 @@ class Animaux extends Pion {
         }
     }
 
+    toString() {
+        return "Animaux";
+    }
+
 }

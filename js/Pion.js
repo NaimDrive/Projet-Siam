@@ -28,6 +28,16 @@ class Pion {
     }
 
     /**
+     * Modifie les coordonnées du pion.
+     * @param {int} x 
+     * @param {int} y 
+     */
+    modifierPion(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    /**
      * Retourne true si le pion est placé, false sinon.
      */
     estPlace() {
