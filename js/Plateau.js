@@ -1,6 +1,6 @@
 class Plateau {
 
-    constructor(taille, joueur1, joueur2) {
+    constructor(taille) {
         this.TAILLE_PLATEAU = taille;
         this.tableau = new Array();
 
