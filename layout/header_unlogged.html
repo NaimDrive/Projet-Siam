@@ -3,7 +3,51 @@
         <img src="/images/logo_header_white.png" alt="logo_header_white" width="30" height="30">
     </span>
     <div class="container justify-content-end mr-0">
-        <button class="btn btn-success mb-0 mr-4" id="connexion">Connexion</button>
-        <button class="btn btn-outline-light mb-0" id="inscription">Inscription</button>
+        <button class="btn btn-success mb-0 mr-4" id="connexion" data-toggle="modal" data-target="#connexionModal">
+            Connexion
+        </button>
+        <button class="btn btn-outline-light mb-0" id="inscription" data-toggle="modal" data-target="#inscriptionModal">
+            Inscription
+        </button>
     </div>
 </nav>
+
+<div class="modal fade" id="connexionModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="modal-title h4">Connexion</span>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-success">Se connecter</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="inscriptionModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="modal-title h4"s>Inscription</span>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-dark">S'inscrire</button>
+        </div>
+      </div>
+    </div>
+</div>
