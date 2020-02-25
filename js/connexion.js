@@ -8,7 +8,7 @@ $("#submit_co").click(function(e) {
     clearCoFields();
 
     console.log("username : " + $("#username_co").val());
-    console.log("password : " + $("password_co").val());
+    console.log("password : " + $("#password_co").val());
 
     if($("#username_co").val() == "") {
         isInvalid("#username_co");
@@ -21,4 +21,6 @@ $("#submit_co").click(function(e) {
             
         }
     }
+
+    formIsOK("#username_co", "#password_co");
 });
