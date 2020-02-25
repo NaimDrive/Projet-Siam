@@ -28,7 +28,7 @@ function initRochers() {
 function initPlateau() {
     plateau = new Plateau(5);
     plateau.placerPion("", rochers[0], 3, 1);
-    plateau.placerPion("", rochers[1], 2, 2);
+    plateau.placerPion("", rochers[1], 3, 2);
     plateau.placerPion("", rochers[2], 2, 3);
 }
 
@@ -41,22 +41,17 @@ function initGame() {
     initPlateau();
 
     // Pour les tests
-    plateau.placerPion(joueur1, joueur1.getPion(0), 1, 0);
-    plateau.placerPion(joueur1, joueur1.getPion(2), 1, 3);
+    plateau.placerPion(joueur1, joueur1.getPion(2), 2, 4);
     plateau.placerPion(joueur1, joueur1.getPion(1), 2, 1);
     plateau.placerPion(joueur1, joueur1.getPion(3), 0, 1);
 
     plateau.placerPion(joueur2, joueur2.getPion(3), 3, 3);
     plateau.placerPion(joueur2, joueur2.getPion(0), 4, 1);
-    
-    plateau.pousser(joueur2, joueur2.getPion(0));
-    plateau.pousser(joueur2, joueur2.getPion(0));
-    plateau.pousser(joueur2, joueur2.getPion(0));
-    plateau.pousser(joueur2, joueur2.getPion(3));
-    plateau.pousser(joueur2, joueur2.getPion(3));
-    plateau.pousser(joueur2, joueur2.getPion(3));
 
-    plateau.enleverPion(joueur2, joueur2.getPion(3));
+    joueur1.getPion(2).rotationGauche();
+    
+    plateau.pousser(joueur1, joueur2, joueur1.getPion(2));
+    plateau.pousser(joueur1, joueur2, joueur1.getPion(2));
 
     plateau.actualiserAffichage(joueur1, joueur2);
 }

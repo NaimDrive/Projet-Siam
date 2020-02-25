@@ -75,23 +75,26 @@ class Plateau {
         return this.tableau[x][y];
     }
 
-    pousser(joueur, animal) {
+    pousser(joueur1, joueur2, animal) {
         if(animal.toString() == "NullObject") {
             return;
         }
 
         if(animal.getOrientation() == Orientation.NORD) {
+            console.log("Nord");
             this.pousserColonneHaut(animal);
         } else if(animal.getOrientation() == Orientation.SUD) {
+            console.log("Sud");
             this.pousserColonneBas(animal);
         } else if(animal.getOrientation() == Orientation.EST) {
+            console.log("Est");
             this.pousserLigneDroite(animal);
         } else {
+            console.log("Ouest");
             this.pousserLigneGauche(animal);
         }
 
-        this.afficherImages();
-        this.actualiserAffichageJoueur(joueur);
+        this.actualiserAffichage(joueur1, joueur2);
     }
 
     /**
@@ -141,22 +144,104 @@ class Plateau {
     /**
      * Déplace tous les éléments d'une colonne vers le bas.
      */
-    pousserColonneBas() {
-        
+    pousserColonneBas(pion) {
+        let totalBas = 0;
+        let totalHaut = 0;
+
+        for (let i = pion.getX(); i < this.tableau.length; i++) {
+            if(this.tableau[i][pion.getY()].toString() == "NullObject") {
+                break;
+            } else if(this.tableau[i][pion.getY()].toString() == "Rocher") {
+                continue;
+            }
+            let orientation = this.tableau[i][pion.getY()].getOrientation();
+            if(orientation == Orientation.NORD) {
+                totalHaut++;
+            } else if(orientation == Orientation.SUD) {
+                totalBas++;
+            }
+        }
+
+        if(totalBas - totalHaut  > 0) {
+
+            let posX = pion.getX();
+            let posY = pion.getY();
+            let moveElement = this.tableau[posX][posY];
+
+            for (let i = posX; i < this.tableau.length; i++) {
+                var tmp = this.tableau[i][posY];
+                moveElement.modifierPion(i, posY);
+                this.tableau[i][posY] = moveElement;
+
+                moveElement = tmp;
+                if(i < (this.tableau.length-1) && this.tableau[i+1][posY].toString() == "NullObject") {
+                    this.tableau[i+1][posY] = moveElement;
+                    break;
+                }
+            }
+            if(tmp.getX() == (this.tableau.length-1)) {
+                tmp.enleverPion();
+            }
+            this.tableau[posX][posY] = new NullObject(ElementPlateau.NULL_OBJECT, posX, posY);
+        }
     }
     
     /**
      * Déplace tous les éléments d'une ligne vers la droite.
      */
-    pousserLigneDroite() {
-
+    pousserLigneDroite(pion) {
+        
     }
 
     /**
      * Déplace tous les éléments d'une ligne vers la gauche.
      */
-    pousserLigneGauche() {
+    pousserLigneGauche(pion) {
+        /*
+        let totalDroite = 0;
+        let totalGauche = 0;
 
+        for (let i = pion.getY(); i >= 0; i--) {
+            if(this.tableau[pion.getX()][i].toString() == "NullObject") {
+                break;
+            } else if(this.tableau[pion.getX()][i].toString() == "Rocher") {
+                continue;
+            }
+            let orientation = this.tableau[pion.getX()][i].getOrientation();
+            if(orientation == Orientation.EST) {
+                totalDroite++;
+            } else if(orientation == Orientation.OUEST) {
+                totalGauche++;
+            }
+        }
+
+        if(totalGauche - totalDroite > 0) {
+            let posX = pion.getX();
+            let posY = pion.getY();
+            let moveElement = this.tableau[posX][posY];
+
+            for (let i = posY; i >= 0; i--) {
+                var tmp = this.tableau[posX][i];
+                console.log("Avant");
+                console.log(moveElement);
+                moveElement.modifierPion(posX, i);
+                console.log("Après");
+                console.log(moveElement);
+                this.tableau[posX][i] = moveElement;
+                
+                moveElement = tmp;
+                if(i > 0 && this.tableau[posX][i-1].toString() == "NullObject") {
+                    this.tableau[posX][i-1] = moveElement;
+                    break;
+                }
+            }
+            //console.log(tmp);
+            if(tmp.getY() == 0) {
+                tmp.enleverPion();
+            }
+            this.tableau[posX][posY] = new NullObject(ElementPlateau.NULL_OBJECT, posX, posY);
+        }
+        */
     }
 
     /**

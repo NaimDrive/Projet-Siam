@@ -68,7 +68,7 @@
 
         <div class="container pt-5">
             <div class="d-flex justify-content-center">
-                <a href="index.html" role="button" class="btn btn-dark m-3">Quitter</a>
+                <a href="index.php" role="button" class="btn btn-dark m-3">Quitter</a>
             </div>
         </div>
         
