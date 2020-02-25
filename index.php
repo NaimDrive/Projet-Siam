@@ -49,10 +49,10 @@
 
     $(document).ready(function () {
         $("#exemple_ajax, #table_ajax").hide();
-       /*$("#exemple").click(function() {
+        $("#exemple").click(function() {
             $.ajax({
                 type: "POST",
-                url: "ajax/inscription.ajax.php?act=getUsers",
+                url: "ajax/users.ajax.php?act=getUsers",
                 contentType: 'application/json',
                 cache: false,
                 dataType: 'json',
@@ -66,7 +66,7 @@
                 $("#user3").html(response[3]);
                 
             });
-        });*/
+        });
     });
     
 </script>

@@ -24,11 +24,11 @@
   } else {
     echo $base->lastErrorMsg();
   }
-  /*
+  
   $requete = "INSERT INTO $mytable (pseudo, password) VALUES
-              ('admin', 'admin'),
-              ('Naim', 'bg'),
-              ('Baptiste', 'bg')";
+              ('admin', '".password_hash('password', PASSWORD_DEFAULT)."'),
+              ('Naim', '".password_hash('bg', PASSWORD_DEFAULT)."'),
+              ('Baptiste', '".password_hash('bg', PASSWORD_DEFAULT)."')";
 
   $base->exec($requete);
 
@@ -44,6 +44,6 @@
     
     // echo "woaw ! <br>";
   }
-  */
+  
 
 ?>

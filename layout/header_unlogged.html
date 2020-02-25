@@ -22,12 +22,12 @@
           </button>
         </div>
         <!-- =========== FORM CONNEXION ============== -->
-        <form id="connexion_form">
+        <form id="connexion_form" method="POST">
           <div class="modal-body">
             
             <div class="form-group">
               <label>Votre pseudo</label>
-              <input type="username" id="username_co" class="form-control"  placeholder="Pseudo" required>
+              <input type="username" name="username" id="username_co" class="form-control"  placeholder="Pseudo" required>
               <div class="valid-feedback">
                 OK
               </div>
@@ -37,7 +37,7 @@
             </div>
             <div class="form-group">
               <label>Votre mot de passe</label>
-              <input type="password" id="password_co" class="form-control" placeholder="Mot de passe" required>
+              <input type="password" name="password" id="password_co" class="form-control" placeholder="Mot de passe" required>
               <div class="valid-feedback">
                 OK
               </div>
@@ -67,7 +67,7 @@
           </button>
         </div>
         <!-- =========== FORM INSCRIPTION ============== -->
-        <form id="inscription_form">
+        <form id="inscription_form" method="POST">
           <div class="modal-body">
 
             <div class="form-group">
@@ -112,5 +112,6 @@
       </div>
     </div>
 </div>
+<script src="/js/form.js"></script>
 <script src="/js/inscription.js"></script>
 <script src="/js/connexion.js"></script>

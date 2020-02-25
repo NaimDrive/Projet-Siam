@@ -3,9 +3,14 @@ function clearCoFields() {
     $("#password_co").removeClass("is-valid is-invalid");
 }
 
-$("#submit_co").click(function(e) {
+$("#connexion_form").submit(function(e) {
     e.preventDefault();
     clearCoFields();
+
+    var values = convertFormData($(this).serialize());
+
+    console.log($(this).attr("method"));
+    console.log(values);
 
     console.log("username : " + $("#username_co").val());
     console.log("password : " + $("#password_co").val());
@@ -22,5 +27,20 @@ $("#submit_co").click(function(e) {
         }
     }
 
-    formIsOK("#username_co", "#password_co");
+    if(formIsOK("#username_co", "#password_co")) {
+        console.log(values);
+        $.ajax({
+            method: "POST",
+            url: "ajax/users.ajax.php?act=Connect",
+            data: values,
+            type: "POST",
+            dataTyp1e: 'json'
+        }).always(function(response) {
+            console.log("response ->");
+            console.log(response);
+            console.log("<-");
+        });
+    }
+
+    
 });
