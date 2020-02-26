@@ -36,11 +36,16 @@ $("#connexion_form").submit(function(e) {
             type: "POST",
             dataTyp1e: 'json'
         }).always(function(response) {
-            console.log("response ->");
-            console.log(response);
-            console.log("<-");
+            location.reload();
         });
     }
+});
 
-    
+$("#deconnexion").click(function(e) { 
+    $.ajax({
+        type: "POST",
+        url: "/ajax/users.ajax.php?act=Deconnect"
+    }).done(function() {
+        location.reload();
+    });
 });

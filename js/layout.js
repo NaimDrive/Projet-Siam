@@ -14,6 +14,8 @@ function initLayout(session) {
             $.get("/layout/header_logged.html",
                 function(response) {
                     $("body").prepend(response);
+                    $("#current_user").text(session["username"]);
+                    console.log(session["username"]);
                 }
             );
 

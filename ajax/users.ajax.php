@@ -28,6 +28,9 @@
             $result[$res["id"]]["pseudo"] = $res["pseudo"];
             $result[$res["id"]]["password"] = $res["password"];
             if(json_encode(password_verify($password, $res["password"]))) {
+                session_start();
+                $_SESSION["online"] = true;
+                $_SESSION["username"] = $username;
                 echo json_encode(true);
                 return;
             }
@@ -37,12 +40,21 @@
 
     }
 
+    function deconnect() {
+        session_start();
+        session_unset();
+        session_destroy();
+    }
+
     switch ($_GET["act"]) {
         case 'getUsers':
             getUsers();
             break;
         case 'Connect':
             connect();
+            break;
+        case 'Deconnect':
+            deconnect();
             break;
         default:
             # code...
