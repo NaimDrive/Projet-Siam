@@ -15,12 +15,25 @@
         print_r(json_encode($result));
     }
 
+    function inscription() {
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+        $bdd = openBDD();
+        
+        $req = "INSERT INTO users (pseudo, password)
+                VALUES('".$username."', '".password_hash($password, PASSWORD_DEFAULT)."')";
+
+        $return = $bdd->exec($req);
+
+        echo (json_encode($return));
+    }
+
     function connect() {
         $username = $_POST["username"];
         $password = $_POST["password"];
         $result = array();
 
-        $output = requeteBDD("SELECT * FROM users WHERE pseudo = '".$username."' or password = '".$password."'");
+        $output = requeteBDD("SELECT * FROM users WHERE pseudo = '".$username."'");
 
         // print_r($output);
 
@@ -49,6 +62,9 @@
     switch ($_GET["act"]) {
         case 'getUsers':
             getUsers();
+            break;
+        case 'Inscription':
+            inscription();
             break;
         case 'Connect':
             connect();

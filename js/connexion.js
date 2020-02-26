@@ -35,8 +35,12 @@ $("#connexion_form").submit(function(e) {
             data: values,
             type: "POST",
             dataTyp1e: 'json'
-        }).always(function(response) {
-            location.reload();
+        }).done(function(response) {
+            if(response) {
+                location.reload();
+            } else {
+                alert("Identifiant incorrect !");
+            }
         });
     }
 });

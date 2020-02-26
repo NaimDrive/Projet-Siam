@@ -4,12 +4,11 @@ function clearSubFields() {
     $("#password_conf").removeClass("is-valid is-invalid");
 }
 
-$("#submit_sub").click(function(e) {
+$("#inscription_form").submit(function(e) {
     e.preventDefault();
     clearSubFields();
 
-    // console.log("username : " + $("#username_sub").val());
-    // console.log("password : " + $("password_sub").val());
+    var values = convertFormData($(this).serialize())
 
     if($("#username_sub").val() == "") {
         isInvalid("#username_sub");
@@ -27,6 +26,17 @@ $("#submit_sub").click(function(e) {
         }
     }
 
-    formIsOK("#username_sub", "#password_sub", "#password_conf");
+    if(formIsOK("#username_sub", "#password_sub", "#password_conf")) {
+        console.log(values);
+        $.ajax({
+            method: "POST",
+            url: "ajax/users.ajax.php?act=Inscription",
+            data: values,
+            type: "POST",
+            dataTyp1e: 'json'
+        }).always(function(response) {
+            console.log(values);
+        });
+    }
 
 });
