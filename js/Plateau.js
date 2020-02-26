@@ -39,10 +39,10 @@ class Plateau {
      * @param {int} y 
      */
     placerPion(joueur, pion, x, y) {
-        if(x < 0 && x >= this.tableau.length) {
+        if(x < 0 && x >= this.TAILLE_PLATEAU) {
             console.log("x hors du tableau");
         }
-        if(y < 0 && y >= this.tableau.length) {
+        if(y < 0 && y >= this.TAILLE_PLATEAU) {
             console.log("y hors du tableau");
         }
         if(pion.estPlace()) {
@@ -136,6 +136,7 @@ class Plateau {
             }
             if(tmp.getX() == 0) {
                 tmp.enleverPion();
+                this.rocherSorti(tmp);
             }
             this.tableau[posX][posY] = new NullObject(ElementPlateau.NULL_OBJECT, posX, posY);
         }
@@ -148,7 +149,7 @@ class Plateau {
         let totalBas = 0;
         let totalHaut = 0;
 
-        for (let i = pion.getX(); i < this.tableau.length; i++) {
+        for (let i = pion.getX(); i < this.TAILLE_PLATEAU; i++) {
             if(this.tableau[i][pion.getY()].toString() == "NullObject") {
                 break;
             } else if(this.tableau[i][pion.getY()].toString() == "Rocher") {
@@ -168,19 +169,20 @@ class Plateau {
             let posY = pion.getY();
             let moveElement = this.tableau[posX][posY];
 
-            for (let i = posX; i < this.tableau.length; i++) {
+            for (let i = posX; i < this.TAILLE_PLATEAU; i++) {
                 var tmp = this.tableau[i][posY];
                 moveElement.modifierPion(i, posY);
                 this.tableau[i][posY] = moveElement;
 
                 moveElement = tmp;
-                if(i < (this.tableau.length-1) && this.tableau[i+1][posY].toString() == "NullObject") {
+                if(i < (this.TAILLE_PLATEAU-1) && this.tableau[i+1][posY].toString() == "NullObject") {
                     this.tableau[i+1][posY] = moveElement;
                     break;
                 }
             }
-            if(tmp.getX() == (this.tableau.length-1)) {
+            if(tmp.getX() == (this.TAILLE_PLATEAU-1)) {
                 tmp.enleverPion();
+                this.rocherSorti(tmp);
             }
             this.tableau[posX][posY] = new NullObject(ElementPlateau.NULL_OBJECT, posX, posY);
         }
@@ -190,14 +192,51 @@ class Plateau {
      * Déplace tous les éléments d'une ligne vers la droite.
      */
     pousserLigneDroite(pion) {
-        
+        let totalDroite = 0;
+        let totalGauche = 0;
+
+        for (let i = pion.getY(); i < this.TAILLE_PLATEAU; i++) {
+            if(this.tableau[pion.getX()][i].toString() == "NullObject") {
+                break;
+            } else if(this.tableau[pion.getX()][i].toString() == "Rocher") {
+                continue;
+            }
+            let orientation = this.tableau[pion.getX()][i].getOrientation();
+            if(orientation == Orientation.EST) {
+                totalDroite++;
+            } else if(orientation == Orientation.OUEST) {
+                totalGauche++;
+            }
+        }
+
+        if(totalDroite - totalGauche > 0) {
+            let posX = pion.getX();
+            let posY = pion.getY();
+            let moveElement = this.tableau[posX][posY];
+            let i;
+            for (i = posY; i < this.TAILLE_PLATEAU; i++) {
+                var tmp = this.tableau[posX][i];
+                moveElement.modifierPion(posX, i);
+                this.tableau[posX][i] = moveElement;
+                
+                moveElement = tmp;
+                if(i < (this.TAILLE_PLATEAU-1) && this.tableau[posX][i+1].toString() == "NullObject") {
+                    this.tableau[posX][i+1] = moveElement;
+                    break;
+                }
+            }
+            if(i == this.TAILLE_PLATEAU) {
+                tmp.enleverPion();
+                this.rocherSorti(tmp);
+            }
+            this.tableau[posX][posY] = new NullObject(ElementPlateau.NULL_OBJECT, posX, posY);
+        }
     }
 
     /**
      * Déplace tous les éléments d'une ligne vers la gauche.
      */
     pousserLigneGauche(pion) {
-        /*
         let totalDroite = 0;
         let totalGauche = 0;
 
@@ -219,14 +258,10 @@ class Plateau {
             let posX = pion.getX();
             let posY = pion.getY();
             let moveElement = this.tableau[posX][posY];
-
-            for (let i = posY; i >= 0; i--) {
+            let i;
+            for (i = posY; i >= 0; i--) {
                 var tmp = this.tableau[posX][i];
-                console.log("Avant");
-                console.log(moveElement);
                 moveElement.modifierPion(posX, i);
-                console.log("Après");
-                console.log(moveElement);
                 this.tableau[posX][i] = moveElement;
                 
                 moveElement = tmp;
@@ -235,13 +270,12 @@ class Plateau {
                     break;
                 }
             }
-            //console.log(tmp);
-            if(tmp.getY() == 0) {
+            if(tmp.getY() - 1 == 0 && i == -1) {
                 tmp.enleverPion();
+                this.rocherSorti(tmp);
             }
             this.tableau[posX][posY] = new NullObject(ElementPlateau.NULL_OBJECT, posX, posY);
         }
-        */
     }
 
     /**
@@ -261,5 +295,19 @@ class Plateau {
      */
     actualiserAffichageJoueur(joueur) {
         joueur.afficherInventaire();
+    }
+
+    /**
+     * Retourne true si le rocher est sorti du plateau, false sinon.
+     * @param {Pion} pion 
+     */
+    rocherSorti(pion) {
+        if(pion.toString() == "Rocher") {
+            if(pion.getX() == -1 && pion.getY() == -1) {
+                console.log("Rocher sorti");
+                return true;
+            }
+        }
+        return false;
     }
 }

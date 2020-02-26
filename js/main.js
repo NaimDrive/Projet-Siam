@@ -46,12 +46,13 @@ function initGame() {
     plateau.placerPion(joueur1, joueur1.getPion(3), 0, 1);
 
     plateau.placerPion(joueur2, joueur2.getPion(3), 3, 3);
-    plateau.placerPion(joueur2, joueur2.getPion(0), 4, 1);
+    plateau.placerPion(joueur2, joueur2.getPion(0), 3, 0);
 
     joueur1.getPion(2).rotationGauche();
+    joueur2.getPion(0).rotationDroite();
     
-    plateau.pousser(joueur1, joueur2, joueur1.getPion(2));
-    plateau.pousser(joueur1, joueur2, joueur1.getPion(2));
+    //plateau.pousser(joueur1, joueur2, joueur1.getPion(2));
+    //plateau.pousser(joueur1, joueur2, joueur1.getPion(2));
 
     plateau.actualiserAffichage(joueur1, joueur2);
 }
