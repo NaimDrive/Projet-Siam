@@ -24,39 +24,39 @@
             </div>
             <div class="container" id="div-tableau">
                 <div class="row">
-                    <div class="col border"></div>
-                    <div class="col border"></div>
-                    <div class="col border"></div>
-                    <div class="col border"></div>
-                    <div class="col border"></div>
+                    <div class="col border" id="case_0_0"></div>
+                    <div class="col border" id="case_0_1" ></div>
+                    <div class="col border" id="case_0_2"></div>
+                    <div class="col border" id="case_0_3"></div>
+                    <div class="col border" id="case_0_4"></div>
                 </div>
                 <div class="row">
-                    <div class="col border"></div>
-                    <div class="col border"></div>
-                    <div class="col border"></div>
-                    <div class="col border"></div>
-                    <div class="col border"></div>
+                    <div class="col border" id="case_1_0"></div>
+                    <div class="col border" id="case_1_1"></div>
+                    <div class="col border" id="case_1_2"></div>
+                    <div class="col border" id="case_1_3"></div>
+                    <div class="col border" id="case_1_4"></div>
                 </div>
                 <div class="row">
-                    <div class="col border"></div>
-                    <div class="col border"></div>
-                    <div class="col border"></div>
-                    <div class="col border"></div>
-                    <div class="col border"></div>
+                    <div class="col border" id="case_2_0"></div>
+                    <div class="col border" id="case_2_1"></div>
+                    <div class="col border" id="case_2_2"></div>
+                    <div class="col border" id="case_2_3"></div>
+                    <div class="col border" id="case_2_4"></div>
                 </div>
                 <div class="row">
-                    <div class="col border"></div>
-                    <div class="col border"></div>
-                    <div class="col border"></div>
-                    <div class="col border"></div>
-                    <div class="col border"></div>
+                    <div class="col border" id="case_3_0"></div>
+                    <div class="col border" id="case_3_1"></div>
+                    <div class="col border" id="case_0_2"></div>
+                    <div class="col border" id="case_3_3"></div>
+                    <div class="col border" id="case_3_4"></div>
                 </div>
                 <div class="row">
-                    <div class="col border"></div>
-                    <div class="col border"></div>
-                    <div class="col border"></div>
-                    <div class="col border"></div>
-                    <div class="col border"></div>
+                    <div class="col border" id="case_4_0"></div>
+                    <div class="col border" id="case_4_1"></div>
+                    <div class="col border" id="case_4_2"></div>
+                    <div class="col border" id="case_4_3"></div>
+                    <div class="col border" id="case_4_4"></div>
                 </div>
             </div>
             <div>
@@ -71,7 +71,7 @@
                 <a href="index.php" role="button" class="btn btn-dark m-3">Quitter</a>
             </div>
         </div>
-        
+
     </body>
     <script src="js/jquery3.4.1.js"></script>
     <script src="js/layout.js"></script>
@@ -83,6 +83,7 @@
     <script src="js/NullObject.js"></script>
     <script src="js/Player.js"></script>
     <script src="js/Plateau.js"></script>
+    <script src="js/ihm.js"></script>
     <script src="js/main.js"></script>
     <script>
         <?php session_start(); ?>;
