@@ -23,6 +23,7 @@ class Player {
             if(!this.pions[i].estPlace()) {
                 let image = document.createElement("img");
                 image.src = this.pions[i].getImageToDisplay();
+                image.id = "image_"+this.id+"_"+i;
                 enfants.appendChild(image);
             }
         }

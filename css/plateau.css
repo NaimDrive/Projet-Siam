@@ -11,3 +11,7 @@ table {
 .selected {
   border: 2px solid red;
 }
+
+.caseSelected {
+  opacity: 0.5;
+}

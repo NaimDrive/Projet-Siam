@@ -47,7 +47,7 @@
                 <div class="row">
                     <div class="col border" id="case_3_0"></div>
                     <div class="col border" id="case_3_1"></div>
-                    <div class="col border" id="case_0_2"></div>
+                    <div class="col border" id="case_3_2"></div>
                     <div class="col border" id="case_3_3"></div>
                     <div class="col border" id="case_3_4"></div>
                 </div>
@@ -68,6 +68,7 @@
 
         <div class="container pt-5">
             <div class="d-flex justify-content-center">
+                <a role="button" class="btn m-3" id="bouton_placer_pion">Placer pion</a>
                 <a href="index.php" role="button" class="btn btn-dark m-3">Quitter</a>
             </div>
         </div>
@@ -83,7 +84,6 @@
     <script src="js/NullObject.js"></script>
     <script src="js/Player.js"></script>
     <script src="js/Plateau.js"></script>
-    <script src="js/ihm.js"></script>
     <script src="js/main.js"></script>
     <script>
         <?php session_start(); ?>;
