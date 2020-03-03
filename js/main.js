@@ -31,9 +31,9 @@ function initRochers() {
  */
 function initPlateau() {
   plateau = new Plateau(5);
-  plateau.placerPion("", rochers[0], 2, 1);
-  plateau.placerPion("", rochers[1], 2, 2);
-  plateau.placerPion("", rochers[2], 2, 3);
+  plateau.placerPion(rochers[0], 2, 1);
+  plateau.placerPion(rochers[1], 2, 2);
+  plateau.placerPion(rochers[2], 2, 3);
 
   initPlateauListener();
 }
@@ -59,19 +59,15 @@ function initPlateauListener() {
  * Créé un listener pour les boutons qui permettent de jouer.
  */
 function initButtonListener() {
-  let btn = document.getElementById("bouton_placer_pion");
-
-  btn.addEventListener('click', function() {
-    let ids = caseCourante.attr('id').split('_');
-    let i = ids[1];
-    let j = ids[2];
-    console.log(i +" "+ j);
-    if(plateau.tableau[i][j].toString() == "NullObject") {
-      plateau.placerPion(joueurCourant, pionCourant, i, j);
-    }
-  });
+    placerPionListener();
+    enleverPionListener();
+    tournerPionListener();
+    pousserPionListener();
 }
 
+/**
+ * Créé un listener pour les images du joueur.
+ */
 function initPlayerImagesListener(joueur) {
   for (let i = 0; i < joueur.pions.length; i++) {
     console.log(joueur.pions[i]);

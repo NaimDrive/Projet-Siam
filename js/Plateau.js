@@ -38,34 +38,21 @@ class Plateau {
      * @param {int} x 
      * @param {int} y 
      */
-    placerPion(joueur, pion, x, y) {
-        if(x < 0 && x >= this.TAILLE_PLATEAU) {
-            console.log("x hors du tableau");
-        }
-        if(y < 0 && y >= this.TAILLE_PLATEAU) {
-            console.log("y hors du tableau");
-        }
+    placerPion(pion, x, y) {
         if(pion.estPlace()) {
             this.enleverPion(pion);
         }
         this.tableau[x][y] = pion;
         pion.placerPion(x,y);
-
-        this.afficherImages();
-        if(joueur != "") {
-            this.actualiserAffichageJoueur(joueur);
-        }
     }
 
     /**
      * Enlève le pion du tableau et le remplace par un NullObject.
      * @param {Pion} pion 
      */
-    enleverPion(joueur, pion) {     
+    enleverPion(pion) {     
         this.tableau[pion.getX()][pion.getY()] = new NullObject(ElementPlateau.NULL_OBJECT, pion.getX(), pion.getY());
         pion.enleverPion();
-        this.afficherImages();
-        this.actualiserAffichageJoueur(joueur);
     }
 
     /**

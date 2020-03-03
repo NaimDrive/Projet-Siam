@@ -68,9 +68,11 @@
 
         <div class="container pt-5">
             <div class="d-flex justify-content-center">
-                <a role="button" class="btn m-3" id="bouton_placer_pion">Placer pion</a>
-                <a href="index.php" role="button" class="btn btn-dark m-3">Quitter</a>
-            </div>
+                <a role="button" id="bouton_placer_pion">Placer pion</a>
+                <a role="button" id="bouton_tourner_pion">Tourner pion</a>
+                <a role="button" id="bouton_enlever_pion">Enlever pion</a>
+                <a role="button" id="bouton_pousser_pion">Pousser pion</a>
+                <a href="index.php" role="button">Quitter</a>
         </div>
 
     </body>
@@ -84,6 +86,7 @@
     <script src="js/NullObject.js"></script>
     <script src="js/Player.js"></script>
     <script src="js/Plateau.js"></script>
+    <script src="js/listeners.js"></script>
     <script src="js/main.js"></script>
     <script>
         <?php session_start(); ?>;
