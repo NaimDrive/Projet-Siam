@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="css/bootstrap-grid.min.css">
 
         <link rel="icon" href="/images/logo_header_green.png">
-        
+
         <title>Projet Siam</title>
     </head>
     <body>
@@ -64,9 +64,9 @@
                 $("#user1").html(response[1]);
                 $("#user2").html(response[2]);
                 $("#user3").html(response[3]);
-                
+
             });
         });
     });
-    
+
 </script>

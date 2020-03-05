@@ -1,8 +1,10 @@
 function isValid(item) {
+    $(item).removeClass("is-invalid");
     $(item).addClass("is-valid");
 }
 
 function isInvalid(item) {
+    $(item).removeClass("is-valid")
     $(item).addClass("is-invalid");
 }
 
@@ -16,7 +18,7 @@ function formIsOK(...args) {
     });
 
     console.log("return : " + ok);
-    
+
     return ok;
 
 }
@@ -24,12 +26,12 @@ function formIsOK(...args) {
 function convertFormData(plainData) {
     plainData = plainData.split('&');
     var fData = {};
-    
+
     plainData.forEach(function(data, index) {
 		tmp = data.split('=')[0];
 		tmp_result = data.split('=')[1];
 		fData[tmp] = tmp_result;
     });
-    
+
     return fData;
 }

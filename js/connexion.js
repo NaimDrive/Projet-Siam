@@ -23,12 +23,12 @@ $("#connexion_form").submit(function(e) {
             isInvalid("#password_co");
         } else {
             isValid("#password_co");
-            
+
         }
     }
 
     if(formIsOK("#username_co", "#password_co")) {
-        console.log(values);
+        console.log("values : " + values);
         $.ajax({
             method: "POST",
             url: "ajax/users.ajax.php?act=Connect",
@@ -36,16 +36,18 @@ $("#connexion_form").submit(function(e) {
             type: "POST",
             dataTyp1e: 'json'
         }).done(function(response) {
-            if(response) {
+            if(response != "false") {
                 location.reload();
             } else {
                 alert("Identifiant incorrect !");
+                isInvalid("#username_co");
+                isInvalid("#password_co");
             }
         });
     }
 });
 
-$("#deconnexion").click(function(e) { 
+$("#deconnexion").click(function(e) {
     $.ajax({
         type: "POST",
         url: "/ajax/users.ajax.php?act=Deconnect"

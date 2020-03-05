@@ -34,8 +34,15 @@ $("#inscription_form").submit(function(e) {
             data: values,
             type: "POST",
             dataTyp1e: 'json'
-        }).always(function(response) {
-            console.log(values);
+        }).done(function(response) {
+          if(response != "false") {
+              location.reload();
+          } else {
+              alert("Erreur !");
+              isInvalid("#username_sub");
+              isInvalid("#password_sub");
+              isInvalid("#password_conf");
+          }
         });
     }
 
