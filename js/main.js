@@ -92,6 +92,9 @@ function initPlayerImagesListener(joueur) {
  */
 function refresh() {
   plateau.actualiserAffichage(joueur1, joueur2);
+  initPlayerImagesListener(joueurCourant);
+  initPlateauListener();
+  initButtonListener();
 }
 
 /**
