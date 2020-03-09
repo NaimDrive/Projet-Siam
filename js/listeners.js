@@ -2,9 +2,8 @@
  * Bouton qui permet de placer un pion sur le plateau.
  */
 function placerPionListener() {
-    let btn = document.getElementById("bouton_placer_pion");
 
-    btn.addEventListener('click', function() {
+    $("#bouton_placer_pion").click(function() {
         if(joueurCourant != null && pionCourant != null && caseCourante != null) {
             let ids = caseCourante.attr('id').split('_');
             let i = ids[1];
@@ -12,6 +11,7 @@ function placerPionListener() {
             if(plateau.tableau[i][j].toString() == "NullObject") {
                 plateau.placerPion(pionCourant, i, j);
                 refresh();
+                initPlayerImagesListener(joueurCourant);
             }
         }
     });
@@ -21,16 +21,18 @@ function placerPionListener() {
  * Bouton qui permet d'enlever un pion du plateau.
  */
 function enleverPionListener() {
-    let btn = document.getElementById("bouton_enlever_pion");
 
-    btn.addEventListener('click', function() {
+    $("#bouton_enlever_pion").click(function() {
         if(pionCourant != null && caseCourante != null) {
             let ids = caseCourante.attr('id').split('_');
             let i = ids[1];
             let j = ids[2];
+            console.log("pionCourant : " + pionCourant);
+            console.log("caseCourante : " + caseCourante.attr("id"));
             if(plateau.tableau[i][j].toString() == "Animaux") {
                 plateau.enleverPion(pionCourant);
                 refresh();
+                initPlayerImagesListener(joueurCourant);
             }
         } 
     });
@@ -40,20 +42,19 @@ function enleverPionListener() {
  * Bouton qui tourne le pion selectionné.
  */
 function tournerPionListener() {
-    let btn = document.getElementById("bouton_tourner_pion");
 
-    btn.addEventListener('click', function() {
+    $("#bouton_tourner_pion").click(function() {
         if(pionCourant != null) {
             pionCourant.rotationDroite();
             refresh();
+            initPlayerImagesListener(joueurCourant);
         }
     });
 }
 
 function pousserPionListener() {
-    let btn = document.getElementById("bouton_pousser_pion");
     
-    btn.addEventListener('click', function() {
+    $("#bouton_pousser_pion").click(function() {
         if(pionCourant != null && joueurCourant != null) {
             let autre = joueurCourant == joueur1 ? joueur2 : joueur1;
             //plateau.pousser(joueurCourant, autre, pionCourant);

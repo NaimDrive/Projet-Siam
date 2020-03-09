@@ -66,13 +66,14 @@
             </div>
         </div>
 
-        <div class="container pt-5">
-            <div class="d-flex justify-content-center">
-                <a role="button" id="bouton_placer_pion">Placer pion</a>
-                <a role="button" id="bouton_tourner_pion">Tourner pion</a>
-                <a role="button" id="bouton_enlever_pion">Enlever pion</a>
-                <a role="button" id="bouton_pousser_pion">Pousser pion</a>
-                <a href="index.php" role="button">Quitter</a>
+        <div class="container p-3">
+            <div class="d-flex justify-content-center btn-group">
+                <button class="btn btn-dark" id="bouton_placer_pion">Placer pion</button>
+                <button class="btn btn-dark" id="bouton_tourner_pion">Tourner pion</button>
+                <button class="btn btn-dark" id="bouton_enlever_pion">Enlever pion</button>
+                <button class="btn btn-dark" id="bouton_pousser_pion">Pousser pion</button>
+                <button class="btn btn-dark" href="index.php">Quitter</button>
+            </div>
         </div>
 
     </body>
@@ -91,6 +92,6 @@
     <script>
         <?php session_start(); ?>;
         var session = <?php echo json_encode($_SESSION); ?>;
-        initLayout(session);
+        initLayout();
     </script>
 </html>

@@ -1,7 +1,7 @@
 function initLayout(session) {
     $(document).ready(function () {
 
-        if(Array.isArray(session) && session.length == 0) {
+        if(Array.isArray(session) && session.length == 0 || session == null) {
             
             $.get("/layout/header_unlogged.html",
                 function(response) {
