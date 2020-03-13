@@ -4,9 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+        <link rel="stylesheet" href="css/style.css">
 
         <link rel="icon" href="/images/logo_header_green.png">
 
@@ -24,6 +24,7 @@
             </div>
             <div class="d-flex justify-content-center ">
                 <button id="exemple" class="btn btn-success m-3">Exemple d'Ajax</button>
+                <a id="test_lobby" class="btn btn-warning m-3" href="lobby.php" style="color: white"> Test lobby </a>
             </div>
             <div id="exemple_ajax" class="d-flex justify-content-center m-5">
                 <table id="table_ajax" class="table table-dark">

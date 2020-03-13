@@ -17,6 +17,11 @@ body{
     color: white;
 }
 
+select>option{
+    text-align: center;
+    font-size: 18px;
+}
+
 #footer{
     margin: auto;
     margin-bottom: 0;
