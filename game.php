@@ -92,6 +92,6 @@
     <script>
         <?php session_start(); ?>;
         var session = <?php echo json_encode($_SESSION); ?>;
-        initLayout();
+        initLayout(session);
     </script>
 </html>
