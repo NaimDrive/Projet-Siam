@@ -3,9 +3,21 @@ function isValid(item) {
     $(item).addClass("is-valid");
 }
 
+function areValid(...args) {
+    args.forEach(function(e) {
+        isValid(e);
+    });
+}
+
 function isInvalid(item) {
     $(item).removeClass("is-valid")
     $(item).addClass("is-invalid");
+}
+
+function areInvalid(...args) {
+    args.forEach(function(e) {
+        isInvalid(e);
+    });
 }
 
 function formIsOK(...args) {

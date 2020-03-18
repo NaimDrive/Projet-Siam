@@ -71,9 +71,7 @@ $("#password_form").submit(function(e) {
     console.log(values);
 
     if(values["new_passw"] === values["new_pass_conf"] && values["new_passw"] !== "") {
-        isValid("#new_passw");
-        isValid("#new_pass_conf");
-        console.log("Je passe dans le if");
+        areValid("#new_passw", "#new_pass_conf")
         // $("#passw_close").click();
         // clearPasswFields();
 
@@ -87,8 +85,11 @@ $("#password_form").submit(function(e) {
             if(response != "false") {
                 location.reload();
             } else {
-                console.log(response);
+                alert("Mot de passe incorrect !");
+                isInvalid("#password_verif");
             }
         });
+    } else {
+        areInvalid("#new_passw", "#new_pass_conf");
     }
 });
