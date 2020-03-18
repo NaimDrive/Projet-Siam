@@ -41,8 +41,8 @@ $("#connexion_form").submit(function(e) {
             dataTyp1e: 'json'
         }).done(function(response) {
             if(response != "false") {
-                // location.reload();
-                console.log(response);
+                location.reload();
+                // console.log(response);
             } else {
                 alert("Identifiant incorrect !");
                 isInvalid("#username_co");
@@ -84,7 +84,11 @@ $("#password_form").submit(function(e) {
             type: "POST",
             dataTyp1e: 'json'
         }).done(function(response) {
-            console.log(response);
+            if(response != "false") {
+                location.reload();
+            } else {
+                console.log(response);
+            }
         });
     }
 });

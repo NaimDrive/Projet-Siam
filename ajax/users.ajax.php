@@ -61,7 +61,7 @@
 
     function changePassw() {
         $username = $_POST["user"];
-        $password = $_POST["pass_verif"];
+        $password = $_POST["password_verif"];
         $new_password = $_POST["new_passw"];
 
         $result = array();
@@ -71,22 +71,25 @@
         foreach($output as $res) {
             $result[$res["id"]]["pseudo"] = $res["pseudo"];
             $result[$res["id"]]["password"] = $res["password"];
-            if(json_encode(password_verify($password, $res["password"]))) {
+            if(password_verify($password, $res["password"])) {
                 $id = $res["id"];
                 break;
             }
         }
 
-        $bdd = openBDD();
-
-        $req = "UPDATE users 
-                SET password='ahah'
-                WHERE id=".$id." and pseudo='".$username.";";
-
-        $return = $bdd->exec($req);
-        
-        echo json_encode($return);
-        print_r(json_encode($_POST));
+        if(!is_null($id)) {
+            $bdd = openBDD();
+    
+            $req = "UPDATE users 
+                    SET password='".password_hash($new_password, PASSWORD_DEFAULT)."'
+                    WHERE id=".$id." and pseudo='".$username."';";
+    
+            $return = $bdd->exec($req);
+            
+            echo json_encode(($return == 1 ? true : false));
+        } else {
+            echo json_encode(false);
+        }
     }
 
     switch ($_GET["act"]) {
