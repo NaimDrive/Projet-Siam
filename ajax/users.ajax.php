@@ -40,7 +40,7 @@
         foreach($output as $res) {
             $result[$res["id"]]["pseudo"] = $res["pseudo"];
             $result[$res["id"]]["password"] = $res["password"];
-            if(json_encode(password_verify($password, $res["password"]))) {
+            if(password_verify($password, $res["password"])) {
                 session_start();
                 $_SESSION["online"] = true;
                 $_SESSION["username"] = $username;
@@ -59,6 +59,36 @@
         session_destroy();
     }
 
+    function changePassw() {
+        $username = $_POST["user"];
+        $password = $_POST["pass_verif"];
+        $new_password = $_POST["new_passw"];
+
+        $result = array();
+
+        $output = requeteBDD("SELECT * FROM users WHERE pseudo = '".$username."'");
+
+        foreach($output as $res) {
+            $result[$res["id"]]["pseudo"] = $res["pseudo"];
+            $result[$res["id"]]["password"] = $res["password"];
+            if(json_encode(password_verify($password, $res["password"]))) {
+                $id = $res["id"];
+                break;
+            }
+        }
+
+        $bdd = openBDD();
+
+        $req = "UPDATE users 
+                SET password='ahah'
+                WHERE id=".$id." and pseudo='".$username.";";
+
+        $return = $bdd->exec($req);
+        
+        echo json_encode($return);
+        print_r(json_encode($_POST));
+    }
+
     switch ($_GET["act"]) {
         case 'getUsers':
             getUsers();
@@ -72,6 +102,8 @@
         case 'Deconnect':
             deconnect();
             break;
+        case 'Password':
+            changePassw();
         default:
             # code...
             break;

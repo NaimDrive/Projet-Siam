@@ -1,6 +1,6 @@
 function initLayout(session) {
     $(document).ready(function () {
-        console.log(session);
+        
         if(Array.isArray(session) && session.length == 0 || session == null) {
             
             $.get("/layout/header_unlogged.html",

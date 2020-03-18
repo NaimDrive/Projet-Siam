@@ -23,6 +23,12 @@ function formIsOK(...args) {
 
 }
 
+function clearFields(...args) {
+    args.forEach(function(e) {
+        $(e).removeClass("is-valid is-invalid");
+    });
+}
+
 function convertFormData(plainData) {
     plainData = plainData.split('&');
     var fData = {};
