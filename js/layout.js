@@ -1,4 +1,5 @@
 function initLayout(session) {
+    console.log("initLayout");
     $(document).ready(function () {
         
         if(Array.isArray(session) && session.length == 0 || session == null) {
@@ -30,3 +31,14 @@ function initLayout(session) {
         );
     });
 }
+
+$.ajax({
+    method: "POST",
+    url: "ajax/users.ajax.php?act=Whoami",
+    type: "POST",
+    dataTyp1e: 'json'
+}).done(function(response) {
+    let session = JSON.parse(response); 
+    initLayout(session);
+    
+});

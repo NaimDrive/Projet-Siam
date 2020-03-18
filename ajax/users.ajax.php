@@ -3,6 +3,11 @@
     include "gestionRequeteBDD.ajax.php";
     // include "test.ajax.php";
 
+    function whoami() {
+        session_start();
+        echo json_encode($_SESSION);
+    }
+
     function getUsers() {
         $output = requeteBDD("SELECT * FROM users");
         $result = array();
@@ -93,6 +98,9 @@
     }
 
     switch ($_GET["act"]) {
+        case 'Whoami':
+            whoami();
+        break;
         case 'getUsers':
             getUsers();
             break;

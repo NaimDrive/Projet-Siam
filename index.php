@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+        <link rel="stylesheet" href="css/typicons.css">
         <link rel="stylesheet" href="css/style.css">
 
         <link rel="icon" href="/images/logo_header_green.png">
@@ -44,9 +45,6 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/layout.js"></script>
 <script>
-    <?php session_start(); ?>;
-    var session = <?php echo json_encode($_SESSION); ?>;
-    initLayout(session);
 
     $(document).ready(function () {
         $("#exemple_ajax, #table_ajax").hide();

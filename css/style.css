@@ -17,6 +17,10 @@ body{
     color: white;
 }
 
+#basic_user {
+    color: ivory;
+}
+
 #changepassw>img {
     filter: invert();
 }
