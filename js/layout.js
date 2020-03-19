@@ -45,14 +45,16 @@ function initLayout(session) {
         );
     });
 }
+var session;
 
 $.ajax({
     method: "POST",
     url: "ajax/users.ajax.php?act=Whoami",
     type: "POST",
-    dataTyp1e: 'json'
+    dataTyp1e: 'json', 
+    async: false
 }).done(function(response) {
-    let session = JSON.parse(response); 
+    session = JSON.parse(response); 
     initLayout(session);
     
 });

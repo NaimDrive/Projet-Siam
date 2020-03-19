@@ -12,8 +12,8 @@ var imageCourante; // Image sélectionnée par un joueur.
  * Initialise les joueurs.
  */
 function initJoueurs() {
-    joueur1 = new Player(ElementPlateau.ELEPHANT, 1);
-    joueur2 = new Player(ElementPlateau.RHINOCEROS, 2);
+    joueur1 = new Player(session["username"], ElementPlateau.ELEPHANT, 1);
+    joueur2 = new Player(null, ElementPlateau.RHINOCEROS, 2);
 }
 
 /**

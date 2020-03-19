@@ -1,7 +1,8 @@
 class Player {
 
-    constructor(animal, id) {
+    constructor(username, animal, id) {
         this.pions = new Array();
+        this.username = username;
         this.animal = animal;
         this.id = id;
 
@@ -27,6 +28,14 @@ class Player {
                 enfants.appendChild(image);
             }
         }
+    }
+
+    getUsername() {
+        return this.username;
+    }
+
+    setUsername(username) {
+        this.username = username;
     }
 
     /**

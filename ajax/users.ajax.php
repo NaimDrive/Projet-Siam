@@ -48,6 +48,7 @@
             $result[$res["id"]]["password"] = $res["password"];
             if(password_verify($password, $res["password"])) {
                 session_start();
+                $_SESSION["id"] = $res["id"];
                 $_SESSION["online"] = true;
                 $_SESSION["username"] = $username;
                 $_SESSION["admin"] = ($res["admin"] == 1 ? true : false);
