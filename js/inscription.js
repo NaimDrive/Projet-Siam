@@ -27,6 +27,8 @@ $("#inscription_form").submit(function(e) {
     }
 
     if(formIsOK("#username_sub", "#password_sub", "#password_conf")) {
+        values["admin"] = (values["admin"] == "on" ? 1 : 0);
+        
         console.log(values);
         $.ajax({
             method: "POST",
@@ -44,6 +46,10 @@ $("#inscription_form").submit(function(e) {
               isInvalid("#password_conf");
           }
         });
+        $(this)[0].reset();
+        $("#closeAddAccount").click();
+        clearSubFields();
+        alert("Le nouveau compte ("+values["username"]+") a bien été créé !");
     }
 
 });

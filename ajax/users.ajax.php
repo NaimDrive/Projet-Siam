@@ -23,10 +23,11 @@
     function inscription() {
         $username = $_POST["username"];
         $password = $_POST["password"];
+        $admin = $_POST["admin"];
         $bdd = openBDD();
         
-        $req = "INSERT INTO users (pseudo, password)
-                VALUES('".$username."', '".password_hash($password, PASSWORD_DEFAULT)."')";
+        $req = "INSERT INTO users (pseudo, password, admin)
+                VALUES('".$username."', '".password_hash($password, PASSWORD_DEFAULT)."', ".$admin.")";
 
         $return = $bdd->exec($req);
 

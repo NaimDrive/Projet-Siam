@@ -9,11 +9,8 @@
           <div class="typcn typcn-key"></div>
         </button>
         <div class="typcn typcn-user m-1 mr-2 ml-2" id="user_status" data-toggle="popover" data-placement="bottom"></div>
-        <!-- <span class="d-inline-block" data-toggle="popover" data-content="Disabled popover">
-          <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>Disabled button</button>
-        </span> -->
         <span id="current_user" class="navbar-brand h4 ml-10 mb-0 mr-5"></span>
-        
+        <span id="creerCompte"></span>
         <button class="btn btn-outline-danger mb-0" id="deconnexion">Deconnexion</button>
     </div>
 </nav>
@@ -74,6 +71,68 @@
     </div>
 </div>
 
-<script src="js/bootstrap.bundle.min.js"></script>
+<!-- MODAL DE CREATION DE COMPTE -->
+<div class="modal fade" id="inscriptionModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title h4"s>Inscription</span>
+        <button type="button" class="close" id="closeAddAccount" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!-- =========== FORM CREATION DE COMPTE ============== -->
+      <form id="inscription_form" method="POST">
+        <div class="modal-body">
+
+          <div class="form-group">
+            <label>Votre pseudo</label>
+            <input type="text" id="username_sub" name="username" class="form-control"  placeholder="Pseudo" required>
+            <div class="valid-feedback">
+              OK
+            </div>
+            <div class="invalid-feedback">
+              Obligatoire
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Votre mot de passe</label>
+            <input type="password" id="password_sub" name="password" class="form-control" placeholder="Mot de passe" required>
+            <div class="valid-feedback">
+              OK
+            </div>
+            <div class="invalid-feedback">
+              Obligatoire
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Confirmez votre mot de passe</label>
+            <input type="password" id="password_conf" class="form-control" placeholder="Confirmer mot de passe" required>
+            <div class="valid-feedback">
+              OK
+            </div>
+            <div class="invalid-feedback">
+              Mot de passe incorrect
+            </div>
+            <div class="custom-control custom-checkbox mt-2">
+              <input type="checkbox" name="admin" class="custom-control-input" id="customCheck1">
+              <label class="custom-control-label" for="customCheck1">Compte administrateur</label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Annuler</button>
+          <button type="submit" id="submit_sub" class="btn btn-dark">S'inscrire</button>
+        </div>
+
+      </form>
+      <!-- ========================================= -->
+    </div>
+  </div>
+</div>
+
+
+<script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/form.js"></script>
 <script src="/js/connexion.js"></script>
+<script src="/js/inscription.js"></script>

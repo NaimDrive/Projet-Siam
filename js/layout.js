@@ -18,22 +18,19 @@ function initLayout(session) {
                     $("#current_user").text(session["username"]);
                     // console.log(session);
 
-                    $("[data-toggle='popover']").popover();
+                    $("[data-toggle='popover']").popover({
+                        trigger: "hover focus"
+                    });
 
                     if(session["admin"] == true) {
                         $("#user_status").addClass("admin_status");
                         $(".admin_status").attr('data-content', "Administrateur");
+                        $("#creerCompte").append('<button class="btn btn-outline-light mb-0 mr-2" id="inscription" data-toggle="modal" data-target="#inscriptionModal">Créer un compte</button>');
                     } else {
                         $("#user_status").addClass("basic_status");
                         $(".basic_status").attr('data-content', "Utilisateur");
                     }
                     
-
-                    $(".admin_status , .basic_status").hover(function() {
-                        $(this).click();
-                    }, function() {
-                        $(this).click();
-                    });
                 }
             );
 
