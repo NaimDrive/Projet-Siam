@@ -15,3 +15,7 @@ table {
 .caseSelected {
   opacity: 0.5;
 }
+
+.J1, .J2 {
+  color: honeydew;
+}

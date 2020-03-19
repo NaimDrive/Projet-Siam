@@ -50,6 +50,10 @@ function initPlateauListener() {
         }
         caseCourante = $(this);
         caseCourante.addClass("caseSelected");
+        console.log($(this).attr('id'));
+        let pos = $(this).attr('id').split('_');
+        console.log(plateau.getPion(pos[1], pos[2]));
+        // pionCourant = plateau.getPion(pos[1], pos[2]);
       });
     }
   }

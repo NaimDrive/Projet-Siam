@@ -22,7 +22,9 @@
 
         <div class="container-fluid text-center d-flex">
             <div>
-                Joueur 1
+                <span class="J1">
+                    Joueur 1
+                </span>
                 <div id="div-joueur1">
                 </div>
             </div>
@@ -64,7 +66,9 @@
                 </div>
             </div>
             <div>
-                Joueur 2
+                <span class="J2">
+                    Joueur 2
+                </span>
                 <div id="div-joueur2">
                 </div>
             </div>
