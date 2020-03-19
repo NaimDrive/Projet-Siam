@@ -8,7 +8,7 @@
         <button class="btn" type="button" id="changepassw" data-placement="bottom" title="Changer de mot de passe" data-toggle="modal" data-target="#passwordModal">
           <div class="typcn typcn-key"></div>
         </button>
-        <div class="typcn typcn-user m-1 mr-2 ml-2 admin_status" id="user_status" data-toggle="popover" data-placement="bottom"></div>
+        <div class="typcn typcn-user m-1 mr-2 ml-2 basic_status" id="user_status" data-toggle="popover" data-placement="bottom"></div>
         <!-- <span class="d-inline-block" data-toggle="popover" data-content="Disabled popover">
           <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>Disabled button</button>
         </span> -->
@@ -77,18 +77,3 @@
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="/js/form.js"></script>
 <script src="/js/connexion.js"></script>
-<script>
-
-  $(function () {
-    $("[data-toggle='popover']").popover();
-    $(".admin_status").attr('data-content', "Administrateur");
-    $(".basic_status").attr('data-content', "Utilisateur");
-  })
-
-  $(".admin_status").hover(function() {
-    $(this).click();
-  }, function() {
-    $(this).click();
-  });
-
-</script>

@@ -17,6 +17,15 @@ function initLayout(session) {
                     $("body").prepend(response);
                     $("#current_user").text(session["username"]);
                     console.log(session["username"]);
+                    $("[data-toggle='popover']").popover();
+                    $(".admin_status").attr('data-content', "Administrateur");
+                    $(".basic_status").attr('data-content', "Utilisateur");
+                    
+                    $(".admin_status , .basic_status").hover(function() {
+                        $(this).click();
+                      }, function() {
+                        $(this).click();
+                      });
                 }
             );
 
