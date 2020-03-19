@@ -49,6 +49,7 @@
                 session_start();
                 $_SESSION["online"] = true;
                 $_SESSION["username"] = $username;
+                $_SESSION["admin"] = ($res["admin"] == 1 ? true : false);
                 echo json_encode(true);
                 return;
             }

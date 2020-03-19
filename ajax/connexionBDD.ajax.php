@@ -16,7 +16,8 @@
   $query = "CREATE TABLE IF NOT EXISTS $mytable (
                 id INTEGER PRIMARY KEY,
                 pseudo VARCHAR(50) NOT NULL,
-                password VARCHAR(50) NOT NULL
+                password VARCHAR(50) NOT NULL,
+                admin INTEGER NOT NULL
             )";
             
   if ($result = $base->exec($query)) {
@@ -25,10 +26,10 @@
     echo $base->lastErrorMsg();
   }
   
-  $requete = "INSERT INTO $mytable (pseudo, password) VALUES
-              ('admin', '".password_hash('password', PASSWORD_DEFAULT)."'),
-              ('Naim', '".password_hash('bg', PASSWORD_DEFAULT)."'),
-              ('Baptiste', '".password_hash('bg', PASSWORD_DEFAULT)."')";
+  $requete = "INSERT INTO $mytable (pseudo, password, admin) VALUES
+              ('admin', '".password_hash('password', PASSWORD_DEFAULT)."', 1),
+              ('Naim', '".password_hash('bg', PASSWORD_DEFAULT)."', 0),
+              ('Baptiste', '".password_hash('bg', PASSWORD_DEFAULT)."', 0)";
 
   $base->exec($requete);
 

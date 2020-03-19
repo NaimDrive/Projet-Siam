@@ -16,16 +16,24 @@ function initLayout(session) {
                 function(response) {
                     $("body").prepend(response);
                     $("#current_user").text(session["username"]);
-                    console.log(session["username"]);
+                    // console.log(session);
+
                     $("[data-toggle='popover']").popover();
-                    $(".admin_status").attr('data-content', "Administrateur");
-                    $(".basic_status").attr('data-content', "Utilisateur");
+
+                    if(session["admin"] == true) {
+                        $("#user_status").addClass("admin_status");
+                        $(".admin_status").attr('data-content', "Administrateur");
+                    } else {
+                        $("#user_status").addClass("basic_status");
+                        $(".basic_status").attr('data-content', "Utilisateur");
+                    }
                     
+
                     $(".admin_status , .basic_status").hover(function() {
                         $(this).click();
-                      }, function() {
+                    }, function() {
                         $(this).click();
-                      });
+                    });
                 }
             );
 
