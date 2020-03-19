@@ -5,10 +5,13 @@
         </a>
     </span>
     <div class="container justify-content-end mr-0">
-        <button class="btn mr-2" type="button" id="changepassw" data-placement="bottom" title="Changer de mot de passe" data-toggle="modal" data-target="#passwordModal">
-          <div class="typcn typcn-key w-100"></div>
+        <button class="btn" type="button" id="changepassw" data-placement="bottom" title="Changer de mot de passe" data-toggle="modal" data-target="#passwordModal">
+          <div class="typcn typcn-key"></div>
         </button>
-        <div class="typcn typcn-user m-1 mr-2" id="basic_user" ></div>
+        <div class="typcn typcn-user m-1 mr-2 ml-2 admin_status" id="user_status" data-toggle="popover" data-placement="bottom"></div>
+        <!-- <span class="d-inline-block" data-toggle="popover" data-content="Disabled popover">
+          <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>Disabled button</button>
+        </span> -->
         <span id="current_user" class="navbar-brand h4 ml-10 mb-0 mr-5"></span>
         
         <button class="btn btn-outline-danger mb-0" id="deconnexion">Deconnexion</button>
@@ -70,5 +73,22 @@
       </div>
     </div>
 </div>
+
+<script src="js/bootstrap.bundle.min.js"></script>
 <script src="/js/form.js"></script>
 <script src="/js/connexion.js"></script>
+<script>
+
+  $(function () {
+    $("[data-toggle='popover']").popover();
+    $(".admin_status").attr('data-content', "Administrateur");
+    $(".basic_status").attr('data-content', "Utilisateur");
+  })
+
+  $(".admin_status").hover(function() {
+    $(this).click();
+  }, function() {
+    $(this).click();
+  });
+
+</script>
