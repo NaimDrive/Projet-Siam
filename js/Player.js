@@ -1,13 +1,15 @@
 class Player {
 
-    constructor(username, animal, id) {
-        this.pions = new Array();
+    constructor(username, animal, id, pions=new Array()) {
+        this.pions = pions;
         this.username = username;
         this.animal = animal;
         this.id = id;
 
-        for (let i = 0; i < 5; i++) {
-            this.pions.push(new Animaux(Orientation.NORD, animal));
+        if(pions.length == 0) {
+            for (let i = 0; i < 5; i++) {
+                this.pions.push(new Animaux(Orientation.NORD, animal));
+            }
         }
     }
 

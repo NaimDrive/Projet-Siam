@@ -1,17 +1,45 @@
+var data;
+
+function joueursFromJSON(json) {
+    joueur1 = new Player(json["joueur1"]["username"], json["joueur1"]["animal"], json["joueur1"]["id"], json["joueur1"]["pions"]);
+    joueur2 = new Player(json["joueur2"]["username"], json["joueur2"]["animal"], json["joueur2"]["id"], json["joueur2"]["pions"]);
+}
+
+function plateauFromJSON(data) {
+    plateau = new Plateau(5, response[0]["data"]["tableau"]);
+}
+
+$(document).ready(function () {
+    $.ajax({
+        method: "POST",
+        url: "ajax/users.ajax.php?act=getParties",
+        type: "POST",
+        dataTyp1e: 'json'
+    }).done(function(response) {
+        response = JSON.parse(response);
+        data = response[0]["data"];
+
+        response.forEach(function(elt, index) {
+            var nbPlace = (elt["data"]["joueur2"]["username"] == "" ? "(1/2)" : "(2/2)");
+            var htmlText = (index+1) + " . «"+decodeURI(elt["nom"])+"» de "+elt["data"]["joueur1"]["username"] + " " + nbPlace;
+            // console.log(htmlText);
+            $("#game_selected").append("<option value='"+elt["id"]+"'>"+htmlText+"</option>");
+        });
+    });
+});
+
+
+
 $("#creerPartieForm").submit(function(e) {
     e.preventDefault();
-    clearSubFields();
 
     var values = convertFormData($(this).serialize())
 
-    // values["id"] = 3;
     initRochers();
     initPlateau();
     initJoueurs();
     var partie = new Partie(plateau, joueur1, joueur2);
-    console.log(partie);
     values["data"] = partie;
-    console.log(values);
 
     $.ajax({
         method: "POST",
@@ -20,11 +48,12 @@ $("#creerPartieForm").submit(function(e) {
         type: "POST",
         dataTyp1e: 'json'
     }).done(function(response) {
-      /*if(response != "false") {
-          location.reload();
+      if(response != "false") {
+        $("#creerPartieForm")[0].reset();
+        $("#closeCreerPartie").click();
       } else {
           alert("Erreur !");
-      }*/
+      }
       console.log("ajax done !");
       console.log("Result :");
       console.log(response);

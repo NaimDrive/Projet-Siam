@@ -100,6 +100,18 @@
         }
     }
 
+    function getParties() {
+        $output = requeteBDD("SELECT * FROM parties");
+        $result = array();
+
+        foreach($output as $res) {
+            array_push($result, array("id"=>$res["id"], "nom"=>$res["nom"], "data"=>unserialize($res["data"])));
+            // $result[$res["id"]] = $res["nom"];
+        }
+        
+        print_r(json_encode($result));
+    }
+
     function creerPartie() {
         $nom = $_POST["nom"];
         $data = $_POST["data"];
@@ -110,7 +122,7 @@
                 VALUES('".$nom."', '".serialize($data)."')";
 
         $return = $bdd->exec($req);
-        echo json_encode($bdd->errorInfo());
+        // echo json_encode($bdd->errorInfo());
 
         echo (json_encode($return));
     }
@@ -133,8 +145,13 @@
             break;
         case 'Password':
             changePassw();
+            break;
+        case 'getParties':
+            getParties();
+            break;
         case 'creerPartie':
             creerPartie();
+            break;
         default:
             # code...
             break;

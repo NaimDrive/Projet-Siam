@@ -1,8 +1,8 @@
 class Plateau {
 
-    constructor(taille) {
+    constructor(taille, tableau=new Array()) {
         this.TAILLE_PLATEAU = taille;
-        this.tableau = new Array();
+        this.tableau = tableau;
 
         for (let i = 0; i < taille; i++) {
             this.tableau.push(new Array());
