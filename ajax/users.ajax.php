@@ -112,6 +112,16 @@
         print_r(json_encode($result));
     }
 
+    function getPartie() {
+        $id = $_POST["game_selected"];
+        // echo json_encode($_POST);
+        $output = requeteBDD("SELECT * FROM parties WHERE id=$id");
+
+        // echo json_encode($bdd->errorInfo());
+        $output[0]["data"] = unserialize($output[0]["data"]); 
+        echo json_encode($output[0]);
+    }
+
     function creerPartie() {
         $nom = $_POST["nom"];
         $data = $_POST["data"];
@@ -148,6 +158,9 @@
             break;
         case 'getParties':
             getParties();
+            break;
+        case 'getPartie':
+            getPartie();
             break;
         case 'creerPartie':
             creerPartie();

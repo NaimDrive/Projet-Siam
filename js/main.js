@@ -119,4 +119,4 @@ function initGame() {
     partie = new Partie(plateau, joueur1, joueur2);
 }
 
-// initGame();
+initGame();

@@ -47,7 +47,7 @@
             </div>
         </div>
         <!-- ^^^^^^^^^^^^^^^^^^ -->
-        <form action="game.php" method="post">
+        <form id="lobbyForm" action="game.php" method="post">
             <div class="container mt-3">
                 <h3 class="mb-4 lobby_title">Parties disponibles</h3>
                 <div class="d-flex justify-content-center">

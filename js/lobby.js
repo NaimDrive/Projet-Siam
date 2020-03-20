@@ -5,8 +5,14 @@ function joueursFromJSON(json) {
     joueur2 = new Player(json["joueur2"]["username"], json["joueur2"]["animal"], json["joueur2"]["id"], json["joueur2"]["pions"]);
 }
 
-function plateauFromJSON(data) {
-    plateau = new Plateau(5, response[0]["data"]["tableau"]);
+function plateauFromJSON(json) {
+    plateau = new Plateau(5, json["plateau"]);
+}
+
+function partieFromJSON(json) {
+    joueursFromJSON(json);
+    plateauFromJSON(json);
+    partie = new Partie(plateau, joueur1, joueur2);
 }
 
 $(document).ready(function () {
@@ -28,12 +34,33 @@ $(document).ready(function () {
     });
 });
 
+$("#lobbyForm").submit(function(e) {
+    e.preventDefault();
 
+    var values = convertFormData($(this).serialize());
+    console.log(values);
+    
+
+    $.ajax({
+        method: "POST",
+        url: "ajax/users.ajax.php?act=getPartie",
+        data: values,
+        type: "POST",
+        dataTyp1e: 'json'
+    }).done(function(response) {
+        console.log("ajax done !");
+        console.log("Result :");
+        response = JSON.parse(response)
+        console.log(response);
+        partieFromJSON(response["data"]);
+        console.log(partie);
+    });
+});
 
 $("#creerPartieForm").submit(function(e) {
     e.preventDefault();
 
-    var values = convertFormData($(this).serialize())
+    var values = convertFormData($(this).serialize());
 
     initRochers();
     initPlateau();

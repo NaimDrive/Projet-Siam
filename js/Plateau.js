@@ -4,10 +4,12 @@ class Plateau {
         this.TAILLE_PLATEAU = taille;
         this.tableau = tableau;
 
-        for (let i = 0; i < taille; i++) {
-            this.tableau.push(new Array());
-            for (let j = 0; j < taille; j++) {
-                this.tableau[i].push(new NullObject(ElementPlateau.NULL_OBJECT, i, j));
+        if(this.tableau.length == 0) {
+            for (let i = 0; i < taille; i++) {
+                this.tableau.push(new Array());
+                for (let j = 0; j < taille; j++) {
+                    this.tableau[i].push(new NullObject(ElementPlateau.NULL_OBJECT, i, j));
+                }
             }
         }
     }
