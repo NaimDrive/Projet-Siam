@@ -15,7 +15,8 @@
         <title>Projet Siam</title>
     </head>
     <body>
-
+        <input type="hidden" id="game_id" name="game_id" value="<?php echo $_POST["game_selected"]; ?>">
+        <?php print_r($_POST); ?>
         <div class="d-flex justify-content-center mt-5">
             <img class="align-content-center" src="images/logo_sia.gif" alt="">
         </div>
@@ -96,6 +97,7 @@
     <script src="js/Player.js"></script>
     <script src="js/Plateau.js"></script>
     <script src="js/listeners.js"></script>
+    <script src="js/Partie.js"></script>
     <script src="js/main.js"></script>
     
 </html>

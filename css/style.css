@@ -46,6 +46,11 @@ select>option {
     font-size: 18px;
 }
 
+.lobby_title {
+    color: honeydew;
+    font-weight: bolder;
+}
+
 #footer{
     margin: auto;
     margin-bottom: 0;

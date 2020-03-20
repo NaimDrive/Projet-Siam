@@ -1,4 +1,5 @@
 // Définition des variables globales
+var partie;
 var plateau; // Le plateau du jeu
 var joueur1; // Le joueur 1
 var joueur2; // Le joueur 2
@@ -115,6 +116,7 @@ function initGame() {
     initButtonListener();
     initPlayerImagesListener(joueur1);
     initPlayerImagesListener(joueur2);
+    partie = new Partie($("#game_id").val(), plateau, joueur1, joueur2);
 }
 
 initGame();
