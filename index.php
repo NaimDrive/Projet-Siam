@@ -20,7 +20,7 @@
 
         <div class="container pt-5">
             <div class="d-flex justify-content-center">
-                <a href="game.php" role="button" class="btn btn-dark m-3">Jouer</a>
+                <!-- <a href="game.php" role="button" class="btn btn-dark m-3">Jouer</a> -->
                 <a href="regles.html" role="button" class="btn btn-info m-3">Règles du jeu</a>
             </div>
             <div class="d-flex justify-content-center ">

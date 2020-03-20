@@ -125,22 +125,17 @@ function getPartie() {
  * Initialise les objets du jeux.
  */
 function initGame() {
-    // initJoueurs();
-    // initRochers();
-    // initPlateau();
-    
-    // A SUPPRIMER
-    joueurCourant = joueur1;
-    // A SUPPRIMER
     getPartie();
     
     refresh();
+
+    joueurCourant = joueur1;
     
     initPlateauListener();
     initButtonListener();
     initPlayerImagesListener(joueur1);
     initPlayerImagesListener(joueur2);
-    // partie = new Partie(plateau, joueur1, joueur2);
+    partie = new Partie(plateau, joueur1, joueur2);
 }
 
 initGame();
