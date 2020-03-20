@@ -49,6 +49,7 @@ select>option {
 .lobby_title {
     color: honeydew;
     font-weight: bolder;
+    text-align: center;
 }
 
 #footer{

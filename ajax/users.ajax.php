@@ -100,6 +100,21 @@
         }
     }
 
+    function creerPartie() {
+        $nom = $_POST["nom"];
+        $data = $_POST["data"];
+
+        $bdd = openBDD();
+
+        $req = "INSERT INTO parties (nom, data)
+                VALUES('".$nom."', '".serialize($data)."')";
+
+        $return = $bdd->exec($req);
+        echo json_encode($bdd->errorInfo());
+
+        echo (json_encode($return));
+    }
+
     switch ($_GET["act"]) {
         case 'Whoami':
             whoami();
@@ -118,6 +133,8 @@
             break;
         case 'Password':
             changePassw();
+        case 'creerPartie':
+            creerPartie();
         default:
             # code...
             break;

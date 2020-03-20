@@ -116,7 +116,7 @@ function initGame() {
     initButtonListener();
     initPlayerImagesListener(joueur1);
     initPlayerImagesListener(joueur2);
-    partie = new Partie($("#game_id").val(), plateau, joueur1, joueur2);
+    partie = new Partie(plateau, joueur1, joueur2);
 }
 
-initGame();
+// initGame();

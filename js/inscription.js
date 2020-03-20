@@ -41,9 +41,10 @@ $("#inscription_form").submit(function(e) {
               location.reload();
           } else {
               alert("Erreur !");
-              isInvalid("#username_sub");
+              /*isInvalid("#username_sub");
               isInvalid("#password_sub");
-              isInvalid("#password_conf");
+              isInvalid("#password_conf");*/
+              areInvalid("#username_sub", "#password_sub", "#password_conf");
           }
         });
         $(this)[0].reset();
