@@ -114,8 +114,8 @@ function getPartie() {
       response = JSON.parse(response)
       // console.log(response);
       partieFromJSON(response["data"]);
-      animauxFromJSON(partie["joueur1"]);
-      animauxFromJSON(partie["joueur2"]);
+      animauxFromJSON(partie["joueur1"], joueur1);
+      animauxFromJSON(partie["joueur2"], joueur2);
       tableauFromJSON(partie["plateau"]);
       console.log(partie);
   });
@@ -125,18 +125,18 @@ function getPartie() {
  * Initialise les objets du jeux.
  */
 function initGame() {
-    initJoueurs();
-    initRochers();
-    initPlateau();
+    // initJoueurs();
+    // initRochers();
+    // initPlateau();
     
     // A SUPPRIMER
     joueurCourant = joueur1;
     // A SUPPRIMER
-    // getPartie();
-    // initPlateauListener();
-
+    getPartie();
+    
     refresh();
-
+    
+    initPlateauListener();
     initButtonListener();
     initPlayerImagesListener(joueur1);
     initPlayerImagesListener(joueur2);

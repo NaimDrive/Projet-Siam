@@ -1,6 +1,6 @@
 function joueursFromJSON(json) {
     joueur1 = new Player(json["joueur1"]["username"], parseInt(json["joueur1"]["animal"]), parseInt(json["joueur1"]["id"]), json["joueur1"]["pions"]);
-    joueur2 = new Player(json["joueur2"]["username"], json["joueur2"]["animal"], json["joueur2"]["id"], json["joueur2"]["pions"]);
+    joueur2 = new Player((json["joueur2"]["username"] == "" ? null : json["joueur2"]["username"]), parseInt(json["joueur2"]["animal"]), parseInt(json["joueur2"]["id"]), json["joueur2"]["pions"]);
 }
 
 function plateauFromJSON(json) {
@@ -36,10 +36,10 @@ function partieFromJSON(json) {
     partie = new Partie(plateau, joueur1, joueur2);
 }
 
-function animauxFromJSON(json) {
+function animauxFromJSON(json, joueur) {
     var pionJ = new Array();
     json["pions"].forEach(function(e) {
         pionJ.push(new Animaux(e["orientation"], json["animal"]));
     });
-    joueur1["pions"] = pionJ;
+    joueur["pions"] = pionJ;
 }
