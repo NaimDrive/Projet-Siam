@@ -59,7 +59,7 @@
             <div class="d-flex justify-content-center m-5 w-90">
     
                 <div class="w-50">
-                    <button type="submit" class="btn btn-dark btn-lg btn-block">Jouer !</button>
+                    <button type="submit" id="lobbySubmit" class="btn btn-dark btn-lg btn-block">Jouer !</button>
                 </div>
     
             </div>
@@ -82,5 +82,5 @@
 <script src="js/Plateau.js"></script>
 <script src="js/listeners.js"></script>
 <script src="js/Partie.js"></script>
-<script src="js/main.js"></script>
+<!-- <script src="js/main.js"></script> -->
 <script src="js/lobby.js"></script>

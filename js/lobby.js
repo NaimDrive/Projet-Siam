@@ -6,7 +6,7 @@ function joueursFromJSON(json) {
 }
 
 function plateauFromJSON(json) {
-    plateau = new Plateau(5, json["plateau"]);
+    plateau = new Plateau(5, json["plateau"]["tableau"]);
 }
 
 function partieFromJSON(json) {
@@ -15,7 +15,15 @@ function partieFromJSON(json) {
     partie = new Partie(plateau, joueur1, joueur2);
 }
 
-$(document).ready(function () {
+function animauxFromJSON(json) {
+    var pionJ = new Array();
+    json["pions"].forEach(function(e) {
+        pionJ.push(new Animaux(e["orientation"], json["animal"]));
+    });
+    joueur1["pions"] = pionJ;
+}
+
+function displayParties() {
     $.ajax({
         method: "POST",
         url: "ajax/users.ajax.php?act=getParties",
@@ -24,7 +32,7 @@ $(document).ready(function () {
     }).done(function(response) {
         response = JSON.parse(response);
         data = response[0]["data"];
-
+    
         response.forEach(function(elt, index) {
             var nbPlace = (elt["data"]["joueur2"]["username"] == "" ? "(1/2)" : "(2/2)");
             var htmlText = (index+1) + " . «"+decodeURI(elt["nom"])+"» de "+elt["data"]["joueur1"]["username"] + " " + nbPlace;
@@ -32,13 +40,21 @@ $(document).ready(function () {
             $("#game_selected").append("<option value='"+elt["id"]+"'>"+htmlText+"</option>");
         });
     });
+}
+
+$(document).ready(function () {
+    displayParties();
 });
 
 $("#lobbyForm").submit(function(e) {
     e.preventDefault();
 
     var values = convertFormData($(this).serialize());
-    console.log(values);
+    if(values["game_selected"] == undefined) {
+        alert("N'oubliez pas de selectionner une partie !");
+        return;
+    }
+    // console.log(values["game_selected"] == undefined);
     
 
     $.ajax({
@@ -48,13 +64,16 @@ $("#lobbyForm").submit(function(e) {
         type: "POST",
         dataTyp1e: 'json'
     }).done(function(response) {
-        console.log("ajax done !");
-        console.log("Result :");
+        // console.log("ajax done !");
+        // console.log("Result :");
         response = JSON.parse(response)
-        console.log(response);
+        // console.log(response);
         partieFromJSON(response["data"]);
-        console.log(partie);
+        animauxFromJSON(partie["joueur1"]);
+        animauxFromJSON(partie["joueur2"]);
+        console.log(partie["plateau"]);
     });
+    // $("#lobbyForm").unbind().submit();
 });
 
 $("#creerPartieForm").submit(function(e) {
