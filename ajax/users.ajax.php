@@ -37,15 +37,14 @@
     function connect() {
         $username = $_POST["username"];
         $password = $_POST["password"];
-        $result = array();
+        // $result = array();
 
         $output = requeteBDD("SELECT * FROM users WHERE pseudo = '".$username."'");
 
-        // print_r($output);
 
         foreach($output as $res) {
-            $result[$res["id"]]["pseudo"] = $res["pseudo"];
-            $result[$res["id"]]["password"] = $res["password"];
+            // $result[$res["id"]]["pseudo"] = $res["pseudo"];
+            // $result[$res["id"]]["password"] = $res["password"];
             if(password_verify($password, $res["password"])) {
                 session_start();
                 $_SESSION["id"] = $res["id"];
@@ -57,7 +56,9 @@
             }
         }
 
+        
         echo json_encode(false);
+
 
     }
 
@@ -135,6 +136,10 @@
         // echo json_encode($bdd->errorInfo());
 
         echo (json_encode($return));
+    }
+
+    function savePartie() {
+        print_r(json_encode($_POST));
     }
 
     switch ($_GET["act"]) {

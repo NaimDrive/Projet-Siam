@@ -31,26 +31,7 @@ $("#lobbyForm").submit(function(e) {
         alert("N'oubliez pas de selectionner une partie !");
         return;
     }
-    // console.log(values["game_selected"] == undefined);
-    
 
-    /*$.ajax({
-        method: "POST",
-        url: "ajax/users.ajax.php?act=getPartie",
-        data: values,
-        type: "POST",
-        dataTyp1e: 'json'
-    }).done(function(response) {
-        // console.log("ajax done !");
-        // console.log("Result :");
-        response = JSON.parse(response)
-        // console.log(response);
-        partieFromJSON(response["data"]);
-        animauxFromJSON(partie["joueur1"]);
-        animauxFromJSON(partie["joueur2"]);
-        tableauFromJSON(partie["plateau"]);
-        console.log(partie);
-    });*/
     $("#lobbyForm").unbind().submit();
 });
 
@@ -76,7 +57,7 @@ $("#creerPartieForm").submit(function(e) {
         $("#creerPartieForm")[0].reset();
         $("#closeCreerPartie").click();
       } else {
-          alert("Erreur !");
+        alert("Erreur !");
       }
       console.log("ajax done !");
       console.log("Result :");

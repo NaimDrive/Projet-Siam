@@ -54,7 +54,9 @@ function initPlateauListener() {
         console.log($(this).attr('id'));
         let pos = $(this).attr('id').split('_');
         console.log(plateau.getPion(pos[1], pos[2]));
-        // pionCourant = plateau.getPion(pos[1], pos[2]);
+        if(plateau.getPion(pos[1], pos[2]).toString() != "NullObject") {
+          pionCourant = plateau.getPion(pos[1], pos[2]);
+        }
       });
     }
   }
@@ -121,6 +123,10 @@ function getPartie() {
   });
 }
 
+function savePartie() {
+  partie.save();
+}
+
 /**
  * Initialise les objets du jeux.
  */
@@ -129,13 +135,18 @@ function initGame() {
     
     refresh();
 
-    joueurCourant = joueur1;
+    joueurCourant = joueur2;
     
     initPlateauListener();
     initButtonListener();
     initPlayerImagesListener(joueur1);
     initPlayerImagesListener(joueur2);
-    partie = new Partie(plateau, joueur1, joueur2);
+    if(joueur2.getUsername() == null && joueur2.getUsername() != session["username"]) {
+      joueur2.setUsername(session["username"]);
+    }
+    // console.log(session);
+    // partie = new Partie(plateau, joueur1, joueur2);
 }
 
 initGame();
+partie.save();

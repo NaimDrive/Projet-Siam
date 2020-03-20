@@ -32,7 +32,7 @@ $("#connexion_form").submit(function(e) {
     }
 
     if(formIsOK("#username_co", "#password_co")) {
-        console.log(values);
+        // console.log(values);
         $.ajax({
             method: "POST",
             url: "ajax/users.ajax.php?act=Connect",
@@ -48,6 +48,7 @@ $("#connexion_form").submit(function(e) {
                 isInvalid("#username_co");
                 isInvalid("#password_co");
             }
+            // console.log(response);
         });
     }
 });

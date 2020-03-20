@@ -5,6 +5,8 @@ function placerPionListener() {
 
     $("#bouton_placer_pion").click(function() {
         if(joueurCourant != null && pionCourant != null && caseCourante != null) {
+            console.log(caseCourante);
+            console.log(pionCourant);
             let ids = caseCourante.attr('id').split('_');
             let i = ids[1];
             let j = ids[2];
@@ -35,9 +37,9 @@ function enleverPionListener() {
                 initPlayerImagesListener(joueurCourant);
             }
         } */
-        let pos = caseCourante.attr('id').split('_');
-        let pion = plateau.getPion(pos[1], pos[2]);
-        plateau.enleverPion(pion);
+        // let pos = caseCourante.attr('id').split('_');
+        // let pion = plateau.getPion(pos[1], pos[2]);
+        plateau.enleverPion(pionCourant);
         refresh();
         initPlayerImagesListener(joueurCourant);
         /*if(pion.toString() != "NullObject") {

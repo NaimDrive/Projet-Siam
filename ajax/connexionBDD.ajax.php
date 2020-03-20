@@ -25,7 +25,7 @@
   } else {
     echo $base->lastErrorMsg();
   }
-  /*
+  
   $requete = "INSERT INTO $mytable (pseudo, password, admin) VALUES
               ('admin', '".password_hash('password', PASSWORD_DEFAULT)."', 1),
               ('Naim', '".password_hash('bg', PASSWORD_DEFAULT)."', 0),
@@ -45,7 +45,7 @@
     
     // echo "woaw ! <br>";
   }
-*/  
+
   $mytable = "parties";
   $query = "CREATE TABLE IF NOT EXISTS $mytable (
                 id INTEGER PRIMARY KEY,
