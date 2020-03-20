@@ -52,9 +52,13 @@ class Plateau {
      * Enlève le pion du tableau et le remplace par un NullObject.
      * @param {Pion} pion 
      */
-    enleverPion(pion) {     
-        this.tableau[pion.getX()][pion.getY()] = new NullObject(ElementPlateau.NULL_OBJECT, pion.getX(), pion.getY());
-        pion.enleverPion();
+    enleverPion(pion) {
+        var pion_x = pion.getX();
+        var pion_y = pion.getY();
+        if(this.tableau[pion_x][pion_y].toString() == "Animaux") {
+            this.tableau[pion.getX()][pion.getY()] = new NullObject(ElementPlateau.NULL_OBJECT, pion.getX(), pion.getY());
+            pion.enleverPion();
+        }
     }
 
     /**
