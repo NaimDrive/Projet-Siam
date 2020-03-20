@@ -82,5 +82,5 @@
 <script src="js/Plateau.js"></script>
 <script src="js/listeners.js"></script>
 <script src="js/Partie.js"></script>
-<!-- <script src="js/main.js"></script> -->
+<script src="js/convertFromJson.js"></script>
 <script src="js/lobby.js"></script>

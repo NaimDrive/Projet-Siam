@@ -99,6 +99,28 @@ function refresh() {
   plateau.actualiserAffichage(joueur1, joueur2);
 }
 
+function getPartie() {
+  var values = {"game_selected" : $("#game_id").val()};
+  $.ajax({
+      method: "POST",
+      url: "ajax/users.ajax.php?act=getPartie",
+      data: values,
+      type: "POST",
+      dataTyp1e: 'json',
+      async: false
+  }).done(function(response) {
+      // console.log("ajax done !");
+      // console.log("Result :");
+      response = JSON.parse(response)
+      // console.log(response);
+      partieFromJSON(response["data"]);
+      animauxFromJSON(partie["joueur1"]);
+      animauxFromJSON(partie["joueur2"]);
+      tableauFromJSON(partie["plateau"]);
+      console.log(partie);
+  });
+}
+
 /**
  * Initialise les objets du jeux.
  */
@@ -106,17 +128,19 @@ function initGame() {
     initJoueurs();
     initRochers();
     initPlateau();
-
+    
     // A SUPPRIMER
     joueurCourant = joueur1;
     // A SUPPRIMER
+    // getPartie();
+    // initPlateauListener();
 
     refresh();
 
     initButtonListener();
     initPlayerImagesListener(joueur1);
     initPlayerImagesListener(joueur2);
-    partie = new Partie(plateau, joueur1, joueur2);
+    // partie = new Partie(plateau, joueur1, joueur2);
 }
 
 initGame();
