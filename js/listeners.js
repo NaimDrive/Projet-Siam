@@ -17,10 +17,9 @@ function placerPionListener() {
                 if(pionCourant.place == false || ((xC == i-1 && yC == j) || (xC == i+1 && yC == j) || (xC == i && yC == j-1) || (xC == i && yC == j+1))) {
                     plateau.placerPion(pionCourant, i, j);
                     refresh();
-                    // initPlayerImagesListener(joueurCourant);
-                    // removeAllListeners();
-                    partie.changementDeTour();
-                    savePartie();
+                    initPlayerImagesListener(joueurCourant);
+                    // partie.changementDeTour();
+                    // savePartie();
                 }
             }
         }
@@ -49,8 +48,9 @@ function enleverPionListener() {
         // let pion = plateau.getPion(pos[1], pos[2]);
         plateau.enleverPion(pionCourant);
         refresh();
-        partie.changementDeTour();
-        savePartie();
+        initPlayerImagesListener(joueurCourant);
+        // partie.changementDeTour();
+        // savePartie();
     });
 }
 
@@ -69,8 +69,9 @@ function tournerPionListener() {
         let pion = plateau.getPion(pos[1], pos[2]);
         pion.rotationDroite();
         refresh();
-        partie.changementDeTour();
-        savePartie();
+        initPlayerImagesListener(joueurCourant);
+        // partie.changementDeTour();
+        // savePartie();
     });
 }
 
@@ -81,8 +82,9 @@ function pousserPionListener() {
             let autre = (joueurCourant == joueur1 ? joueur2 : joueur1);
             plateau.pousser(joueurCourant, autre, pionCourant);
             refresh();
-            partie.changementDeTour();
-            savePartie();
+            initPlayerImagesListener(joueurCourant);
+            // partie.changementDeTour();
+            // savePartie();
         }
     });
     

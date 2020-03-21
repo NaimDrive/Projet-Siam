@@ -120,10 +120,11 @@ class Plateau {
             for (let i = posX; i >= 0; i--) {
                 var tmp = this.tableau[i][posY];
                 moveElement.modifierPion(i, posY);
+
                 this.tableau[i][posY] = moveElement;
                 
                 moveElement = tmp;
-                if(i > 0 && this.tableau[i-1][posY].toString() == "NullObject") {
+                if(i > 0 && this.tableau[i][posY].toString() == "NullObject") {
                     this.tableau[i-1][posY] = moveElement;
                     break;
                 }
