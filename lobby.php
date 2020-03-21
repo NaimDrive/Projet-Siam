@@ -15,9 +15,12 @@
     </head>
     <body>
         <!-- BUTTON CREER PARTIE -->
-        <div class="container mt-5 ml-5">
+        <div class="container mt-5 ml-5 d-flex justify-content-between">
             <button class="btn btn-success ml-5" data-toggle="modal" data-target="#modalPartie">
                 <div class="typcn typcn-plus">&nbsp;<span class="lobby_title">Créer une partie</span></div>
+            </button>
+            <button id="admin_supp" class="btn btn-danger">
+                <div class="typcn typcn-trash"></div>
             </button>
         </div>
         <!-- ^^^^^^^^^^^^^^^^^^ -->
@@ -58,10 +61,12 @@
             </div>
             <div class="d-flex justify-content-center m-5 w-90">
     
-                <div class="w-50">
+                <div class="w-75 d-flex justify-content-center">
                     <button type="submit" id="lobbySubmit" class="btn btn-dark btn-lg btn-block">Jouer !</button>
                 </div>
-    
+                <br>
+                
+                
             </div>
         </form>
         

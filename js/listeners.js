@@ -11,8 +11,8 @@ function placerPionListener() {
             let i = ids[1];
             let j = ids[2];
             if(plateau.tableau[i][j].toString() == "NullObject") {
-                let xC = pionCourant.getX();
-                let yC = pionCourant.getY();
+                let xC = parseInt(pionCourant.getX());
+                let yC = parseInt(pionCourant.getY());
 
                 if(pionCourant.place == false || ((xC == i-1 && yC == j) || (xC == i+1 && yC == j) || (xC == i && yC == j-1) || (xC == i && yC == j+1))) {
                     plateau.placerPion(pionCourant, i, j);

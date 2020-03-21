@@ -23,6 +23,25 @@ function displayParties() {
 
 $(document).ready(function () {
     displayParties();
+    if(session["admin"] == false) {
+        $("#admin_supp").hide();
+    } else {
+        $("#admin_supp").click(function() {
+            var id = $("#game_selected").find("option:selected").val();
+            
+            if(id != undefined) {
+                $.ajax({
+                    method: "POST",
+                    url: "ajax/users.ajax.php?act=suppPartie",
+                    data: {'id' : id},
+                    type: "POST",
+                    dataTyp1e: 'json'
+                }).done(function(response) {
+                    console.log(response);
+                });
+            }
+        });
+    }
 });
 
 $("#lobbyForm").submit(function(e) {

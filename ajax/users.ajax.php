@@ -145,6 +145,12 @@
 
     }
 
+    function suppPartie() {
+        $id = $_POST["id"];
+
+        echo json_encode($_POST);
+    } 
+
     switch ($_GET["act"]) {
         case 'Whoami':
             whoami();
@@ -175,6 +181,9 @@
             break;
         case 'savePartie':
             savePartie();
+            break;
+        case 'suppPartie':
+            suppPartie();
             break;
         default:
             # code...
