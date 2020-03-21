@@ -41,11 +41,12 @@ class Plateau {
      * @param {int} y 
      */
     placerPion(pion, x, y) {
+        if(x==-1 || y==-1) return;
         if(pion.estPlace()) {
             this.enleverPion(pion);
         }
-        this.tableau[x][y] = pion;
         pion.placerPion(x,y);
+        this.tableau[x][y] = pion;
     }
 
     /**

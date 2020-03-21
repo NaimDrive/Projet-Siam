@@ -3,6 +3,7 @@ class Animaux extends Pion {
     constructor(orientation, image) {
         super(image);
         this.orientation = orientation;
+        // this.placerPion(x, y);
     }
 
     /**

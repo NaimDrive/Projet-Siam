@@ -38,8 +38,10 @@ function partieFromJSON(json) {
 
 function animauxFromJSON(json, joueur) {
     var pionJ = new Array();
-    json["pions"].forEach(function(e) {
+    json["pions"].forEach(function(e, i) {
         pionJ.push(new Animaux(e["orientation"], json["animal"]));
+        plateau.placerPion(pionJ[i], parseInt(e["x"]), parseInt(e["y"]));
+        // pionJ[i].placerPion(parseInt(e["x"]), parseInt(e["y"]));
     });
     joueur["pions"] = pionJ;
 }

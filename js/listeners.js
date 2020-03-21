@@ -14,6 +14,7 @@ function placerPionListener() {
                 plateau.placerPion(pionCourant, i, j);
                 refresh();
                 initPlayerImagesListener(joueurCourant);
+                savePartie();
             }
         }
     });

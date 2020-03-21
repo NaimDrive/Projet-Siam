@@ -1,7 +1,6 @@
 <?php
 
     include "gestionRequeteBDD.ajax.php";
-    // include "test.ajax.php";
 
     function whoami() {
         session_start();
@@ -13,7 +12,6 @@
         $result = array();
 
         foreach($output as $res) {
-            // array_push($result, $res);
             $result[$res["id"]] = $res["pseudo"];
         }
         
@@ -37,14 +35,10 @@
     function connect() {
         $username = $_POST["username"];
         $password = $_POST["password"];
-        // $result = array();
 
         $output = requeteBDD("SELECT * FROM users WHERE pseudo = '".$username."'");
 
-
         foreach($output as $res) {
-            // $result[$res["id"]]["pseudo"] = $res["pseudo"];
-            // $result[$res["id"]]["password"] = $res["password"];
             if(password_verify($password, $res["password"])) {
                 session_start();
                 $_SESSION["id"] = $res["id"];
@@ -56,9 +50,7 @@
             }
         }
 
-        
         echo json_encode(false);
-
 
     }
 
@@ -107,7 +99,6 @@
 
         foreach($output as $res) {
             array_push($result, array("id"=>$res["id"], "nom"=>$res["nom"], "data"=>unserialize($res["data"]), "jCourant"=>$res["joueurCourant"]));
-            // $result[$res["id"]] = $res["nom"];
         }
         
         print_r(json_encode($result));
@@ -139,7 +130,19 @@
     }
 
     function savePartie() {
-        print_r(json_encode($_POST));
+        $id = $_POST["id"];
+        $joueurCourant = $_POST["joueurCourant"];
+        $data = $_POST["data"];
+        
+        $bdd = openBDD();
+
+        $req = "UPDATE parties SET data='".serialize($data)."', joueurCourant=".$joueurCourant." WHERE id=".$id."";
+        $return = $bdd->exec($req);
+
+        echo json_encode($bdd->errorInfo());
+
+        echo (json_encode($return));
+
     }
 
     switch ($_GET["act"]) {
@@ -169,6 +172,9 @@
             break;
         case 'creerPartie':
             creerPartie();
+            break;
+        case 'savePartie':
+            savePartie();
             break;
         default:
             # code...

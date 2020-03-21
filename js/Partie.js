@@ -7,11 +7,12 @@ class Partie {
     }
 
     save() {
-        var values = new Array();
+        var values = {};
         values["id"] = $("#game_id").val();
         values["data"] = partie;
+        values["joueurCourant"] = joueurCourant.id;
         console.log(values);
-        /*$.ajax({
+        $.ajax({
             method: "POST",
             url: "ajax/users.ajax.php?act=savePartie",
             data: values,
@@ -19,16 +20,12 @@ class Partie {
             dataTyp1e: 'json',
             async: false
         }).done(function(response) {
-            // console.log("ajax done !");
-            // console.log("Result :");
-            response = JSON.parse(response)
-            // console.log(response);
-            partieFromJSON(response["data"]);
-            animauxFromJSON(partie["joueur1"], joueur1);
-            animauxFromJSON(partie["joueur2"], joueur2);
-            tableauFromJSON(partie["plateau"]);
-            console.log(partie);
-        });*/
+            console.log("Result :");
+            console.log(response);
+          
+            initPlayerImagesListener(joueur1);
+            initPlayerImagesListener(joueur2);
+        });
 
     }
 }

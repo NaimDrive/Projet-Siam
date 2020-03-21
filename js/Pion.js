@@ -15,7 +15,7 @@ class Pion {
     placerPion(x, y) {
         this.x = x;
         this.y = y;
-        this.place = true;
+        this.place = (x != -1 && y != -1 ? true : false);
     }
 
     /**
