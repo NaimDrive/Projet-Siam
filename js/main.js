@@ -62,6 +62,6 @@ function initGame() {
     // console.log(session);
     // partie = new Partie(plateau, joueur1, joueur2);
 }
-
+if(session.length == 0) window.location.replace("index.php");
 initGame();
 // partie.save();

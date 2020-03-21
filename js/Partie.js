@@ -29,4 +29,13 @@ class Partie {
 
     }
 
+    actualiserTour(joueur) {
+        console.log("--- Actualisation tour ---");
+        console.log(joueur.getUserID() == parseInt(session["id"]));
+        if(joueur.getUserID() != parseInt(session["id"])) {
+            removeAllListeners();
+        }
+        console.log("--- ^^^^^^^^^^^^^^^^^^ ---");
+    }
+
 }

@@ -5,8 +5,8 @@ function placerPionListener() {
 
     $("#bouton_placer_pion").click(function() {
         if(joueurCourant != null && pionCourant != null && caseCourante != null) {
-            console.log(caseCourante);
-            console.log(pionCourant);
+            // console.log(caseCourante);
+            // console.log(pionCourant);
             let ids = caseCourante.attr('id').split('_');
             let i = parseInt(ids[1]);
             let j = parseInt(ids[2]);
@@ -18,6 +18,7 @@ function placerPionListener() {
                     plateau.placerPion(pionCourant, i, j);
                     refresh();
                     initPlayerImagesListener(joueurCourant);
+                    partie.actualiserTour(joueurCourant);
                     // savePartie();
                 }
             }
@@ -48,8 +49,6 @@ function enleverPionListener() {
         plateau.enleverPion(pionCourant);
         refresh();
         initPlayerImagesListener(joueurCourant);
-        /*if(pion.toString() != "NullObject") {
-        }*/
     });
 }
 
@@ -90,16 +89,16 @@ function pousserPionListener() {
  */
 function initPlayerImagesListener(joueur) {
     for (let i = 0; i < joueur.pions.length; i++) {
-        console.log(joueur.pions[i]);
+        console.log("#image_"+joueur.id+"_"+i);
   
         $("#image_"+joueur.id+"_"+i).click(function(){
             if(pionCourant != null) {
-            imageCourante.removeClass("selected");
+                imageCourante.removeClass("selected");
             }
             if(joueurCourant == joueur) {
-            pionCourant = joueur.getPion(i);
-            imageCourante = $(this);
-            imageCourante.addClass("selected");
+                pionCourant = joueur.getPion(i);
+                imageCourante = $(this);
+                imageCourante.addClass("selected");
             }
         
             console.log("Image "+i+" joueur "+ joueur.id);
@@ -128,4 +127,10 @@ function initPlateauListener() {
             });
         }
     }
+}
+
+function removeAllListeners() {
+    $("body").find("*").each(function() {
+        $(this).off("click");
+    });
 }

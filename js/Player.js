@@ -72,7 +72,7 @@ class Player {
     }
 
     getUserID() {
-        this.userID;
+        return this.userID;
     }
 
     setUserID(id) {
