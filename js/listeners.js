@@ -17,9 +17,10 @@ function placerPionListener() {
                 if(pionCourant.place == false || ((xC == i-1 && yC == j) || (xC == i+1 && yC == j) || (xC == i && yC == j-1) || (xC == i && yC == j+1))) {
                     plateau.placerPion(pionCourant, i, j);
                     refresh();
-                    initPlayerImagesListener(joueurCourant);
+                    // initPlayerImagesListener(joueurCourant);
+                    // removeAllListeners();
                     partie.changementDeTour();
-                    // savePartie();
+                    savePartie();
                 }
             }
         }
@@ -123,8 +124,12 @@ function initPlateauListener() {
                 console.log($(this).attr('id'));
                 let pos = $(this).attr('id').split('_');
                 console.log(plateau.getPion(pos[1], pos[2]));
-                if(plateau.getPion(pos[1], pos[2]).toString() != "NullObject") {
-                    pionCourant = plateau.getPion(pos[1], pos[2]);
+                var tmp = plateau.getPion(pos[1], pos[2]);
+                if(tmp.toString() != "NullObject" && tmp.getImageToDisplay().includes(joueurCourant.getId(), -6)) {
+                    console.log("v");
+                    console.log(tmp.getImageToDisplay().includes(joueurCourant.getId(), -6));
+                    console.log("^");
+                    pionCourant = tmp;
                 }
             });
         }
@@ -132,7 +137,7 @@ function initPlateauListener() {
 }
 
 function removeAllListeners() {
-    $("body").find("*").each(function() {
+    $("#game_area").find("*").each(function() {
         $(this).off("click");
     });
 }

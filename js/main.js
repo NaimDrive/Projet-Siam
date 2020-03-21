@@ -3,7 +3,7 @@
  */
 function refresh() {
   plateau.actualiserAffichage(joueur1, joueur2);
-  partie.actualiserTour(joueurCourant);
+  // partie.actualiserTour(joueurCourant);
 }
 
 /**
@@ -60,6 +60,9 @@ function initGame() {
       // console.log("j2 name : "+joueur2.getUsername());
       // console.log("session name : "+session["username"]);
     }
+    console.log("vvv");
+    console.log(joueurCourant);
+    console.log("^^^");
     partie.actualiserTour(joueurCourant);
     // console.log(session);
     // partie = new Partie(plateau, joueur1, joueur2);

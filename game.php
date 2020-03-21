@@ -20,7 +20,7 @@
             <img class="align-content-center" src="images/logo_sia.gif" alt="">
         </div>
 
-        <div class="container-fluid text-center d-flex">
+        <div id="game_area" class="container-fluid text-center d-flex">
             <div>
                 <span class="J1">
                     Joueur 1

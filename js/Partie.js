@@ -23,8 +23,8 @@ class Partie {
             console.log("Result :");
             console.log(response);
           
-            initPlayerImagesListener(joueur1);
-            initPlayerImagesListener(joueur2);
+            // initPlayerImagesListener(joueur1);
+            // initPlayerImagesListener(joueur2);
         });
 
     }
@@ -33,7 +33,8 @@ class Partie {
         console.log("--- Actualisation tour ---");
         console.log(joueur.getUserID() == parseInt(session["id"]));
         if(joueur.getUserID() != parseInt(session["id"])) {
-            // removeAllListeners();
+            console.log("je passe pour tout casser !");
+            removeAllListeners();
         } else {
             console.log("C'est mon tour");
         }
@@ -42,11 +43,12 @@ class Partie {
 
     changementDeTour() {
         console.log("--- vvvvvvvvvvvvvvvvvv ---");
-        console.log(joueurCourant.getUserID() == joueur1.getUserID());
-        if(joueurCourant.getUserID() == this.joueur1.getUserID()) {
+        console.log(joueurCourant.getId() == joueur1.getId());
+        if(joueurCourant.getId() == this.joueur1.getId()) {
             console.log("1->2");
             joueurCourant = this.joueur2;
             removeJoueurListeners(1);
+            // this.actualiserTour(joueurCourant);
         } else {
             console.log("2->1");
             joueurCourant = this.joueur1;
@@ -55,6 +57,7 @@ class Partie {
         console.log(joueurCourant);
         console.log("--- ^^^^^^^^^^^^^^^^^^ ---");
         initPlayerImagesListener(joueurCourant);
+        this.actualiserTour(joueurCourant);
     }
 
 }
