@@ -17,10 +17,14 @@
         <!-- BUTTON CREER PARTIE -->
         <div class="container mt-5 ml-5 d-flex justify-content-between">
             <button class="btn btn-success ml-5" data-toggle="modal" data-target="#modalPartie">
-                <div class="typcn typcn-plus">&nbsp;<span class="lobby_title">Créer une partie</span></div>
+                <div class="typcn typcn-plus">&nbsp;
+                    <span class="lobby_title">Créer une partie</span>
+                </div>
             </button>
             <button id="admin_supp" class="btn btn-danger">
-                <div class="typcn typcn-trash"></div>
+                <div class="typcn typcn-trash">&nbsp;
+                    <span class="lobby_title">Supprimer la partie</span>
+                </div>
             </button>
         </div>
         <!-- ^^^^^^^^^^^^^^^^^^ -->

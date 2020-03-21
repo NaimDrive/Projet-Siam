@@ -7,11 +7,12 @@ function displayParties() {
         type: "POST",
         dataTyp1e: 'json'
     }).done(function(response) {
+        $("#game_selected").empty();
         response = JSON.parse(response);
+        console.log(response);
         if(Object.keys(response).length == 0) return;
         data = response[0]["data"];
     
-        $("#game_selected").empty();
         response.forEach(function(elt, index) {
             var nbPlace = (elt["data"]["joueur2"]["username"] == "" ? "(1/2)" : "(2/2)");
             var htmlText = (index+1) + " . «"+decodeURI(elt["nom"])+"» de "+elt["data"]["joueur1"]["username"] + " " + nbPlace;
@@ -22,6 +23,7 @@ function displayParties() {
 }
 
 $(document).ready(function () {
+    if(session.length == 0) window.location.replace("index.php");
     displayParties();
     if(session["admin"] == false || session.length == 0) {
         $("#admin_supp").hide();
