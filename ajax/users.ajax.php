@@ -148,7 +148,14 @@
     function suppPartie() {
         $id = $_POST["id"];
 
-        echo json_encode($_POST);
+        $bdd = openBDD();
+
+        $req = "DELETE FROM parties WHERE id=".$id."";
+        $return = $bdd->exec($req);
+
+        echo json_encode($bdd->errorInfo());
+
+        echo (json_encode($return)); 
     } 
 
     switch ($_GET["act"]) {

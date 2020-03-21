@@ -23,7 +23,7 @@ function displayParties() {
 
 $(document).ready(function () {
     displayParties();
-    if(session["admin"] == false) {
+    if(session["admin"] == false || session.length == 0) {
         $("#admin_supp").hide();
     } else {
         $("#admin_supp").click(function() {
@@ -38,6 +38,7 @@ $(document).ready(function () {
                     dataTyp1e: 'json'
                 }).done(function(response) {
                     console.log(response);
+                    displayParties();
                 });
             }
         });
