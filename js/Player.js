@@ -32,10 +32,17 @@ class Player {
         }
     }
 
+    /**
+     * Retourne le pseudo du joueur
+     */
     getUsername() {
         return this.username;
     }
 
+    /**
+     * Modifie le pseudo du joueur
+     * @param String username 
+     */
     setUsername(username) {
         this.username = username;
     }
@@ -56,6 +63,9 @@ class Player {
         return null;
     }
 
+    /**
+     * Retourne l'ID du joueur
+     */
     getId() {
         return this.id;
     }
