@@ -8,8 +8,8 @@ function placerPionListener() {
             console.log(caseCourante);
             console.log(pionCourant);
             let ids = caseCourante.attr('id').split('_');
-            let i = ids[1];
-            let j = ids[2];
+            let i = parseInt(ids[1]);
+            let j = parseInt(ids[2]);
             if(plateau.tableau[i][j].toString() == "NullObject") {
                 let xC = parseInt(pionCourant.getX());
                 let yC = parseInt(pionCourant.getY());
@@ -18,7 +18,7 @@ function placerPionListener() {
                     plateau.placerPion(pionCourant, i, j);
                     refresh();
                     initPlayerImagesListener(joueurCourant);
-                    // savePartie();
+                    savePartie();
                 }
             }
         }

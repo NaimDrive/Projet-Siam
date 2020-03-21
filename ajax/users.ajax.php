@@ -130,16 +130,16 @@
     function savePartie() {
         $id = $_POST["id"];
         $joueurCourant = $_POST["joueurCourant"];
-        $data = $_POST["data"];
+        $data = serialize($_POST["data"]);
         
         $bdd = openBDD();
 
-        $req = "UPDATE parties SET data='".serialize($data)."', joueurCourant=".$joueurCourant." WHERE id=".$id."";
-        $return = $bdd->exec($req);
+        $req = $bdd->prepare("UPDATE parties SET data=:data, joueurCourant=:joueurCourant WHERE id=:id");
+        $req->bindParam(':data', $data);
+        $req->bindParam(':joueurCourant', $joueurCourant);
+        $req->bindParam(':id', $id);
 
-        echo json_encode($bdd->errorInfo());
-
-        echo (json_encode($return));
+        echo (json_encode($req->execute()));
 
     }
 
@@ -148,12 +148,12 @@
 
         $bdd = openBDD();
 
-        $req = "DELETE FROM parties WHERE id=".$id."";
-        $return = $bdd->exec($req);
+        $req = $bdd->prepare("DELETE FROM parties WHERE id=:id");
+        $req->bindParam(':id', $id);
 
-        echo json_encode($bdd->errorInfo());
+        // echo json_encode($bdd->errorInfo());
 
-        echo (json_encode($return)); 
+        echo (json_encode($req->execute())); 
     } 
 
     switch ($_GET["act"]) {
