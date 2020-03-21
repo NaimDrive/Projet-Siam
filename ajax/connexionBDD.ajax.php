@@ -25,13 +25,13 @@
   } else {
     echo $base->lastErrorMsg();
   }
-  
+  /*
   $requete = "INSERT INTO $mytable (pseudo, password, admin) VALUES
               ('admin', '".password_hash('password', PASSWORD_DEFAULT)."', 1),
               ('Naim', '".password_hash('bg', PASSWORD_DEFAULT)."', 0),
               ('Baptiste', '".password_hash('bg', PASSWORD_DEFAULT)."', 0)";
 
-  $base->exec($requete);
+  $base->exec($requete);*/
 
   $requete2 = "select * from users";
 
@@ -57,5 +57,9 @@
   } else {
     echo $base->lastErrorMsg();
   }
-
+/*
+  $requete = "ALTER TABLE parties ADD joueurCourant INTEGER NOT NULL DEFAULT 1";
+  $result = $base->exec($requete);
+  echo "<h1>res : ".$base->lastErrorMsg()." </h1>";
+*/
 ?>
