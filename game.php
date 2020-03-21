@@ -80,7 +80,7 @@
                 <button class="btn btn-dark" id="bouton_tourner_pion">Tourner pion</button>
                 <button class="btn btn-dark" id="bouton_enlever_pion">Enlever pion</button>
                 <button class="btn btn-dark" id="bouton_pousser_pion">Pousser pion</button>
-                <button class="btn btn-dark" href="index.php">Quitter</button>
+                <a class="btn btn-dark" href="lobby.php">Quitter</a>
             </div>
         </div>
 

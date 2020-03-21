@@ -33,9 +33,22 @@ class Partie {
         console.log("--- Actualisation tour ---");
         console.log(joueur.getUserID() == parseInt(session["id"]));
         if(joueur.getUserID() != parseInt(session["id"])) {
-            removeAllListeners();
+            // removeAllListeners();
+        } else {
+            console.log("C'est mon tour");
         }
         console.log("--- ^^^^^^^^^^^^^^^^^^ ---");
+    }
+
+    changementDeTour() {
+        if(joueurCourant.getUserID() == this.joueur1.getUserID) {
+            joueurCourant = this.joueur2;
+            removeJoueurListeners(1);
+        } else {
+            joueurCourant = this.joueur1;
+            removeJoueurListeners(2);
+        }
+        initPlayerImagesListener(joueurCourant);
     }
 
 }

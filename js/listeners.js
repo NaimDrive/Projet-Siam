@@ -18,7 +18,6 @@ function placerPionListener() {
                     plateau.placerPion(pionCourant, i, j);
                     refresh();
                     initPlayerImagesListener(joueurCourant);
-                    partie.actualiserTour(joueurCourant);
                     // savePartie();
                 }
             }
@@ -88,11 +87,12 @@ function pousserPionListener() {
  * Créé un listener pour les images du joueur.
  */
 function initPlayerImagesListener(joueur) {
+    console.log(joueur);
     for (let i = 0; i < joueur.pions.length; i++) {
         console.log("#image_"+joueur.id+"_"+i);
   
         $("#image_"+joueur.id+"_"+i).click(function(){
-            if(pionCourant != null) {
+            if(!pionCourant.estPlace()) {
                 imageCourante.removeClass("selected");
             }
             if(joueurCourant == joueur) {
@@ -132,5 +132,11 @@ function initPlateauListener() {
 function removeAllListeners() {
     $("body").find("*").each(function() {
         $(this).off("click");
+    });
+}
+
+function removeJoueurListeners(id) {
+    $("#div-joueur"+id).children().each(function() {
+        $(this).off('click');
     });
 }
