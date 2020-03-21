@@ -170,7 +170,7 @@ class Plateau {
                 this.tableau[i][posY] = moveElement;
 
                 moveElement = tmp;
-                if(i < (this.TAILLE_PLATEAU-1) && this.tableau[i+1][posY].toString() == "NullObject") {
+                if(i < (this.TAILLE_PLATEAU-1) && this.tableau[i][posY].toString() == "NullObject") {
                     this.tableau[i+1][posY] = moveElement;
                     break;
                 }
@@ -215,7 +215,7 @@ class Plateau {
                 this.tableau[posX][i] = moveElement;
                 
                 moveElement = tmp;
-                if(i < (this.TAILLE_PLATEAU-1) && this.tableau[posX][i+1].toString() == "NullObject") {
+                if(i < (this.TAILLE_PLATEAU-1) && this.tableau[posX][i].toString() == "NullObject") {
                     this.tableau[posX][i+1] = moveElement;
                     break;
                 }
@@ -260,7 +260,7 @@ class Plateau {
                 this.tableau[posX][i] = moveElement;
                 
                 moveElement = tmp;
-                if(i > 0 && this.tableau[posX][i-1].toString() == "NullObject") {
+                if(i > 0 && this.tableau[posX][i].toString() == "NullObject") {
                     this.tableau[posX][i-1] = moveElement;
                     break;
                 }
