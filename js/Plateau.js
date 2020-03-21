@@ -304,4 +304,97 @@ class Plateau {
         }
         return false;
     }
+
+    /**
+     * Avance le pion dans la direction en paramètre
+     * @param {Pion} pion 
+     * @param {Case} casedirection 
+     */
+    avancer(pion, casedirection) {
+        if(pion == null || casedirection == null) {
+            break;
+        }
+
+        if(pion.getY()-1 == casedirection.getY()) {
+            avancerHaut(pion);
+        } else if(pion.getY()+1 == casedirection.getY()) {
+            avancerBas(pion);
+        } else if(pion.getX()+1 == casedirection.getX()) {
+            avancerDroite(pion);
+        } else {
+            avancerGauche(pion);
+        }
+    }
+
+    /**
+     * Avance le pion de 1 case vers le haut
+     * @param {Pion} pion 
+     */
+    avancerHaut(pion) {
+        let posX = pion.getX();
+        let posY = pion.getY();
+        let moveElement = this.tableau[posX][posY];
+
+        if((posY-1 >= 0) && this.tableau[posX][posY-1].toString() == "NullObject") {
+            this.tableau[posX][posY-1] = moveElement;
+            moveElement.modifierPion(posX, posY-1);
+            break;
+        }
+
+        this.tableau[posX][posY] = new NullObject(ElementPlateau.NULL_OBJECT, posX, posY);
+    }
+
+    /**
+     * Avance le pion de 1 case vers le bas
+     * @param {Pion} pion 
+     */
+    avancerBas(pion) {
+        let posX = pion.getX();
+        let posY = pion.getY();
+        let moveElement = this.tableau[posX][posY];
+
+        if((posY+1 <= this.TAILLE_PLATEAU-1) && this.tableau[posX][posY+1].toString() == "NullObject") {
+            this.tableau[posX][posY+1] = moveElement;
+            moveElement.modifierPion(posX, posY+1);
+            break;
+        }
+
+        this.tableau[posX][posY] = new NullObject(ElementPlateau.NULL_OBJECT, posX, posY);
+    }
+
+    /**
+     * Avance le pion de 1 case vers la droite
+     * @param {Pion} pion 
+     */
+    avancerDroite(pion) {
+        let posX = pion.getX();
+        let posY = pion.getY();
+        let moveElement = this.tableau[posX][posY];
+
+        if((posX+1 <= this.TAILLE_PLATEAU-1) && this.tableau[posX+1][posY].toString() == "NullObject") {
+            this.tableau[posX+1][posY] = moveElement;
+            moveElement.modifierPion(posX+1, posY);
+            break;
+        }
+
+        this.tableau[posX][posY] = new NullObject(ElementPlateau.NULL_OBJECT, posX, posY);
+    }
+
+    /**
+     * Avance le pion de 1 case vers la gauche
+     * @param {Pion} pion 
+     */
+    avancerGauche(pion) {
+        let posX = pion.getX();
+        let posY = pion.getY();
+        let moveElement = this.tableau[posX][posY];
+
+        if((posX-1 >= 0) && this.tableau[posX-1][posY].toString() == "NullObject") {
+            this.tableau[posX-1][posY] = moveElement;
+            moveElement.modifierPion(posX-1, posY);
+            break;
+        }
+
+        this.tableau[posX][posY] = new NullObject(ElementPlateau.NULL_OBJECT, posX, posY);
+    }
 }
