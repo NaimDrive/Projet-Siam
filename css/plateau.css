@@ -18,4 +18,9 @@ table {
 
 .J1, .J2 {
   color: honeydew;
+  font-weight: bolder;
+}
+
+#div-joueur1, #div-joueur2 {
+  margin-top: 2.5rem;
 }

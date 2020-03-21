@@ -65,3 +65,8 @@ select>option {
     color: honeydew;
     font-weight: 700;
 }
+
+#footer>ul>li>a {
+    color: honeydew;
+    text-decoration: none;
+}

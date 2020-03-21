@@ -1,6 +1,8 @@
 function joueursFromJSON(json) {
     joueur1 = new Player(json["joueur1"]["username"], parseInt(json["joueur1"]["animal"]), parseInt(json["joueur1"]["id"]), json["joueur1"]["pions"]);
+    joueur1.setUserID(json["joueur1"]["userID"]);
     joueur2 = new Player((json["joueur2"]["username"] == "" ? null : json["joueur2"]["username"]), parseInt(json["joueur2"]["animal"]), parseInt(json["joueur2"]["id"]), json["joueur2"]["pions"]);
+    joueur2.setUserID(json["joueur2"]["userID"]);
 }
 
 function plateauFromJSON(json) {

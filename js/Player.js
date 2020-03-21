@@ -5,6 +5,7 @@ class Player {
         this.username = username;
         this.animal = animal;
         this.id = id;
+        this.userID;
 
         if(pions.length == 0) {
             for (let i = 0; i < 5; i++) {
@@ -68,5 +69,13 @@ class Player {
      */
     getId() {
         return this.id;
+    }
+
+    getUserID() {
+        this.userID;
+    }
+
+    setUserID(id) {
+        this.userID = id;
     }
 }

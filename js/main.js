@@ -55,6 +55,7 @@ function initGame() {
     initPlayerImagesListener(joueur2);
     if(joueur2.getUsername() == null && joueur1.getUsername() != session["username"]) {
       joueur2.setUsername(session["username"]);
+      joueur2.setUserID(session["id"]);
       // console.log("j2 name : "+joueur2.getUsername());
       // console.log("session name : "+session["username"]);
     }

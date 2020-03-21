@@ -14,6 +14,7 @@ function displayParties() {
         data = response[0]["data"];
     
         response.forEach(function(elt, index) {
+            console.log(elt["data"]["joueur2"]["username"]);
             var nbPlace = (elt["data"]["joueur2"]["username"] == "" ? "(1/2)" : "(2/2)");
             var htmlText = (index+1) + " . «"+decodeURI(elt["nom"])+"» de "+elt["data"]["joueur1"]["username"] + " " + nbPlace;
             // console.log(htmlText);
@@ -67,6 +68,7 @@ $("#creerPartieForm").submit(function(e) {
     initRochers();
     initPlateau();
     initJoueurs();
+    joueur1.setUserID(session["id"]);
     var partie = new Partie(plateau, joueur1, joueur2);
     values["data"] = partie;
     console.log(partie);
