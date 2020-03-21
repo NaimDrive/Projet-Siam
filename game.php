@@ -98,6 +98,7 @@
     <script src="js/listeners.js"></script>
     <script src="js/Partie.js"></script>
     <script src="js/convertFromJson.js"></script>
+    <script src="js/init.js"></script>
     <script src="js/lobby.js"></script>
     <script src="js/main.js"></script>
     

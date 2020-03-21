@@ -8,6 +8,7 @@ function displayParties() {
         dataTyp1e: 'json'
     }).done(function(response) {
         response = JSON.parse(response);
+        if(Object.keys(response).length == 0) return;
         data = response[0]["data"];
     
         response.forEach(function(elt, index) {
@@ -45,6 +46,7 @@ $("#creerPartieForm").submit(function(e) {
     initJoueurs();
     var partie = new Partie(plateau, joueur1, joueur2);
     values["data"] = partie;
+    console.log(partie);
 
     $.ajax({
         method: "POST",
@@ -56,6 +58,7 @@ $("#creerPartieForm").submit(function(e) {
       if(response != "false") {
         $("#creerPartieForm")[0].reset();
         $("#closeCreerPartie").click();
+        displayParties();
       } else {
         alert("Erreur !");
       }

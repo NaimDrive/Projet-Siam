@@ -61,5 +61,9 @@
   $requete = "ALTER TABLE parties ADD joueurCourant INTEGER NOT NULL DEFAULT 1";
   $result = $base->exec($requete);
   echo "<h1>res : ".$base->lastErrorMsg()." </h1>";
+
+  $requete = "DELETE FROM parties";
+  $result = $base->exec($requete);
+  echo "<h1>res : ".$base->lastErrorMsg()." </h1>";
 */
 ?>

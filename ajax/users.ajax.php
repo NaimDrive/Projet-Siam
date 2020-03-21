@@ -106,7 +106,7 @@
         $result = array();
 
         foreach($output as $res) {
-            array_push($result, array("id"=>$res["id"], "nom"=>$res["nom"], "data"=>unserialize($res["data"])));
+            array_push($result, array("id"=>$res["id"], "nom"=>$res["nom"], "data"=>unserialize($res["data"]), "jCourant"=>$res["joueurCourant"]));
             // $result[$res["id"]] = $res["nom"];
         }
         
