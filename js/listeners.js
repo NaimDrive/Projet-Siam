@@ -14,7 +14,7 @@ function placerPionListener() {
                 plateau.placerPion(pionCourant, i, j);
                 refresh();
                 initPlayerImagesListener(joueurCourant);
-                savePartie();
+                // savePartie();
             }
         }
     });
@@ -71,9 +71,10 @@ function pousserPionListener() {
     
     $("#bouton_pousser_pion").click(function() {
         if(pionCourant != null && joueurCourant != null) {
-            let autre = joueurCourant == joueur1 ? joueur2 : joueur1;
+            let autre = (joueurCourant == joueur1 ? joueur2 : joueur1);
             plateau.pousser(joueurCourant, autre, pionCourant);
             refresh();
+            initPlayerImagesListener(joueurCourant);
         }
     });
     
