@@ -38,6 +38,8 @@ class Partie {
         } else {
             console.log("C'est mon tour");
         }
+        $("#tour_joueur").empty();
+        $("#tour_joueur").text(joueurCourant.getUsername() + " (J"+joueurCourant.getId()+")");
         console.log("--- ^^^^^^^^^^^^^^^^^^ ---");
     }
 
@@ -58,6 +60,7 @@ class Partie {
         console.log("--- ^^^^^^^^^^^^^^^^^^ ---");
         initPlayerImagesListener(joueurCourant);
         this.actualiserTour(joueurCourant);
+        
     }
 
 }

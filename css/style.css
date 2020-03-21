@@ -52,6 +52,11 @@ select>option {
     text-align: center;
 }
 
+.tour_joueur {
+    color: honeydew;
+    font-weight: bolder;
+}
+
 #footer{
     margin: auto;
     margin-bottom: 0;

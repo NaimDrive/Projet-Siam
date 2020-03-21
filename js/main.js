@@ -36,6 +36,7 @@ function getPartie() {
       animauxFromJSON(partie["joueur1"], joueur1);
       animauxFromJSON(partie["joueur2"], joueur2);
       joueurCourant = (response["joueurCourant"] == "1" ? joueur1 : joueur2);
+      $(".lobby_title").text(decodeURI(response["nom"]));
       console.log(response);
   });
 }

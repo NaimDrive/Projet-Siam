@@ -17,7 +17,10 @@
     <body>
         <input type="hidden" style="display: none;" id="game_id" name="game_id" value="<?php echo $_POST["game_selected"]; ?>">
         <div class="d-flex justify-content-center mt-4">
-            <img class="align-content-center" src="images/logo_sia.gif" alt="">
+            <div class="h4 lobby_title"></div>
+        </div>
+        <div class="d-flex justify-content-center tour_joueur mb-2">
+        Au tour de... &nbsp;<div id="tour_joueur">admin</div>
         </div>
 
         <div id="game_area" class="container-fluid text-center d-flex">
