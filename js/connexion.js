@@ -44,9 +44,8 @@ $("#connexion_form").submit(function(e) {
                 location.reload();
                 // console.log(response);
             } else {
+                areInvalid("#username_co", "#password_co");
                 alert("Identifiant incorrect !");
-                isInvalid("#username_co");
-                isInvalid("#password_co");
             }
             // console.log(response);
         });

@@ -36,7 +36,11 @@
         $username = $_POST["username"];
         $password = $_POST["password"];
 
-        $output = requeteBDD("SELECT * FROM users WHERE pseudo = '".$username."'");
+        $bdd = openBDD();
+        $req = $bdd->prepare("SELECT * FROM users WHERE pseudo=:username");
+        $req->bindParam(':username', $username);
+        $req->execute();
+        $output = $req->fetchAll();
 
         foreach($output as $res) {
             if(password_verify($password, $res["password"])) {
@@ -67,7 +71,11 @@
 
         $result = array();
 
-        $output = requeteBDD("SELECT * FROM users WHERE pseudo = '".$username."'");
+        $bdd = openBDD();
+        $req = $bdd->prepare("SELECT * FROM users WHERE pseudo=:username");
+        $req->bindParam(':username', $username);
+        $req->execute();
+        $output = $req->fetchAll();
 
         foreach($output as $res) {
             $result[$res["id"]]["pseudo"] = $res["pseudo"];
@@ -79,13 +87,13 @@
         }
 
         if(!is_null($id)) {
-            $bdd = openBDD();
-    
-            $req = "UPDATE users 
-                    SET password='".password_hash($new_password, PASSWORD_DEFAULT)."'
-                    WHERE id=".$id." and pseudo='".$username."';";
-    
-            $return = $bdd->exec($req);
+            $new_password = password_hash($new_password, PASSWORD_DEFAULT);
+
+            $req = $bdd->prepare("UPDATE users SET password=:new_password WHERE id=:id and pseudo=:username");
+            $req->bindParam(':new_password', $new_password);
+            $req->bindParam(':id', $id);
+            $req->bindParam(':username', $username);
+            $return = $req->execute();
             
             echo json_encode(($return == 1 ? true : false));
         } else {
@@ -106,10 +114,13 @@
 
     function getPartie() {
         $id = $_POST["game_selected"];
-        // echo json_encode($_POST);
-        $output = requeteBDD("SELECT * FROM parties WHERE id=$id");
 
-        // echo json_encode($bdd->errorInfo());
+        $bdd = openBDD();
+        $req = $bdd->prepare("SELECT * FROM parties WHERE id=:id");
+        $req->bindParam(':id', $id);
+        $req->execute();
+        $output = $req->fetchAll();
+
         $output[0]["data"] = unserialize($output[0]["data"]); 
         echo json_encode($output[0]);
     }
