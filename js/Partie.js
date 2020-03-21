@@ -41,13 +41,19 @@ class Partie {
     }
 
     changementDeTour() {
-        if(joueurCourant.getUserID() == this.joueur1.getUserID) {
+        console.log("--- vvvvvvvvvvvvvvvvvv ---");
+        console.log(joueurCourant.getUserID() == joueur1.getUserID());
+        if(joueurCourant.getUserID() == this.joueur1.getUserID()) {
+            console.log("1->2");
             joueurCourant = this.joueur2;
             removeJoueurListeners(1);
         } else {
+            console.log("2->1");
             joueurCourant = this.joueur1;
             removeJoueurListeners(2);
         }
+        console.log(joueurCourant);
+        console.log("--- ^^^^^^^^^^^^^^^^^^ ---");
         initPlayerImagesListener(joueurCourant);
     }
 
