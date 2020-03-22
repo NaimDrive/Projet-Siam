@@ -75,16 +75,12 @@ class Plateau {
         }
 
         if(animal.getOrientation() == Orientation.NORD) {
-            console.log("Nord");
             this.pousserColonneHaut(animal);
         } else if(animal.getOrientation() == Orientation.SUD) {
-            console.log("Sud");
             this.pousserColonneBas(animal);
         } else if(animal.getOrientation() == Orientation.EST) {
-            console.log("Est");
             this.pousserLigneDroite(animal);
         } else {
-            console.log("Ouest");
             this.pousserLigneGauche(animal);
         }
 
@@ -141,7 +137,6 @@ class Plateau {
      * Déplace tous les éléments d'une colonne vers le bas.
      */
     pousserColonneBas(pion) {
-        console.log("VERS LE BAS");
         let totalBas = 0;
         let totalHaut = 0;
 
@@ -175,12 +170,6 @@ class Plateau {
                     this.tableau[i][posY] = moveElement;
                     break;
                 }
-                
-                console.log("vv");
-                console.log(this.tableau[i][posY].toString());
-                console.log(this.tableau[i][posY+1].toString());
-                console.log("i : "+i+" & posY :"+posY);
-                console.log("^^");
             }
             if(tmp.getX() == (this.TAILLE_PLATEAU-1)) {
                 tmp.enleverPion();
@@ -306,7 +295,6 @@ class Plateau {
     rocherSorti(pion) {
         if(pion.toString() == "Rocher") {
             if(pion.getX() == -1 && pion.getY() == -1) {
-                console.log("Rocher sorti");
                 return true;
             }
         }

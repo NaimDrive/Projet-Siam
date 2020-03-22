@@ -14,7 +14,6 @@ function displayParties() {
         data = response[0]["data"];
     
         response.forEach(function(elt, index) {
-            console.log(elt["data"]["joueur2"]["username"]);
             var nbPlace = (elt["data"]["joueur2"]["username"] == "" ? "(1/2)" : "(2/2)");
             var participe = elt["data"]["joueur2"]["username"] == session["username"] || elt["data"]["joueur1"]["username"] == session["username"];
             var acces = (nbPlace == "(1/2)") || participe || session["admin"];

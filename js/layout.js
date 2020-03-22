@@ -16,7 +16,6 @@ function initLayout(session) {
                 function(response) {
                     $("body").prepend(response);
                     $("#current_user").text(session["username"]);
-                    // console.log(session);
 
                     $("[data-toggle='popover']").popover({
                         trigger: "hover focus"
