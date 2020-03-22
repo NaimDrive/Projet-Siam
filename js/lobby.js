@@ -16,6 +16,11 @@ function displayParties() {
         response.forEach(function(elt, index) {
             console.log(elt["data"]["joueur2"]["username"]);
             var nbPlace = (elt["data"]["joueur2"]["username"] == "" ? "(1/2)" : "(2/2)");
+            var participe = elt["data"]["joueur2"]["username"] == session["username"] || elt["data"]["joueur1"]["username"] == session["username"];
+            var acces = (nbPlace == "(1/2)") || participe || session["admin"];
+            console.log("www");
+            console.log(nbPlace + " - " + participe + " - " + acces);
+            console.log("^^^"); 
             var htmlText = (index+1) + " . «"+decodeURI(elt["nom"])+"» de "+elt["data"]["joueur1"]["username"] + " " + nbPlace;
             // console.log(htmlText);
             $("#game_selected").append("<option value='"+elt["id"]+"'>"+htmlText+"</option>");

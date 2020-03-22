@@ -20,8 +20,8 @@ function placerPionListener() {
                     plateau.placerPion(pionCourant, i, j);
                     refresh();
                     initPlayerImagesListener(joueurCourant);
-                    // partie.changementDeTour();
-                    // savePartie();
+                    partie.changementDeTour();
+                    savePartie();
                 }
             }
         }
@@ -40,8 +40,8 @@ function enleverPionListener() {
             initPlayerImagesListener(joueurCourant);
             caseCourante.removeClass("pionSelected");
             pionCourant = undefined;
-            // partie.changementDeTour();
-            // savePartie();
+            partie.changementDeTour();
+            savePartie();
         }
     });
 }
@@ -58,8 +58,8 @@ function tournerPionListener() {
             pion.rotationDroite();
             refresh();
             initPlayerImagesListener(joueurCourant);
-            // partie.changementDeTour();
-            // savePartie();
+            partie.changementDeTour();
+            savePartie();
         }
     });
 }
@@ -74,8 +74,8 @@ function pousserPionListener() {
             initPlayerImagesListener(joueurCourant);
             removePionSelectedClass();
             $("#case_"+pionCourant.getX()+"_"+pionCourant.getY()).addClass("pionSelected");
-            // partie.changementDeTour();
-            // savePartie();
+            partie.changementDeTour();
+            savePartie();
         }
     });
     
@@ -85,13 +85,9 @@ function pousserPionListener() {
  * Créé un listener pour les images du joueur.
  */
 function initPlayerImagesListener(joueur) {
-    console.log(joueur);
     for (let i = 0; i < joueur.pions.length; i++) {
-        console.log("#image_"+joueur.id+"_"+i);
-  
         $("#image_"+joueur.id+"_"+i).click(function(){
             if((pionCourant != undefined || (pionCourant != undefined && !pionCourant.estPlace())) && imageCourante != undefined) {
-                console.log(imageCourante);
                 imageCourante.removeClass("selected");
             }
             if(joueurCourant == joueur) {
@@ -100,8 +96,6 @@ function initPlayerImagesListener(joueur) {
                 imageCourante = $(this);
                 imageCourante.addClass("selected");
             }
-        
-            console.log("Image "+i+" joueur "+ joueur.id);
         });
     }
 }
@@ -126,10 +120,6 @@ function initPlateauListener() {
                 console.log(plateau.getPion(pos[1], pos[2]));
                 var tmp = plateau.getPion(pos[1], pos[2]);
                 if(tmp.toString() != "NullObject" && tmp.getImageToDisplay().includes(joueurCourant.getId(), -6)) {
-                    /*console.log("v");
-                    console.log(tmp.getImageToDisplay().includes(joueurCourant.getId(), -6));
-                    console.log($(this));
-                    console.log("^");*/
                     pionCourant = tmp;
                     caseCourante.addClass("pionSelected");
                 } else if((pionCourant != undefined && tmp.toString() != "NullObject")){

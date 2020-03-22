@@ -71,7 +71,15 @@ select>option {
     font-weight: 700;
 }
 
+.typcn-social-github-circular {
+    /* vertical-align: middle; */
+    font-size: 22px;
+    color: honeydew;
+}
+/*
 #footer>ul>li>a {
     color: honeydew;
+    font-weight: bolder;
+    font-size: 18px;
     text-decoration: none;
-}
+}*/
