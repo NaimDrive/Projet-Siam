@@ -125,7 +125,7 @@ class Plateau {
                 
                 moveElement = tmp;
                 if(i > 0 && this.tableau[i][posY].toString() == "NullObject") {
-                    this.tableau[i-1][posY] = moveElement;
+                    this.tableau[i][posY] = moveElement;
                     break;
                 }
             }
@@ -141,6 +141,7 @@ class Plateau {
      * Déplace tous les éléments d'une colonne vers le bas.
      */
     pousserColonneBas(pion) {
+        console.log("VERS LE BAS");
         let totalBas = 0;
         let totalHaut = 0;
 
@@ -171,9 +172,15 @@ class Plateau {
 
                 moveElement = tmp;
                 if(i < (this.TAILLE_PLATEAU-1) && this.tableau[i][posY].toString() == "NullObject") {
-                    this.tableau[i+1][posY] = moveElement;
+                    this.tableau[i][posY] = moveElement;
                     break;
                 }
+                
+                console.log("vv");
+                console.log(this.tableau[i][posY].toString());
+                console.log(this.tableau[i][posY+1].toString());
+                console.log("i : "+i+" & posY :"+posY);
+                console.log("^^");
             }
             if(tmp.getX() == (this.TAILLE_PLATEAU-1)) {
                 tmp.enleverPion();
@@ -216,7 +223,7 @@ class Plateau {
                 
                 moveElement = tmp;
                 if(i < (this.TAILLE_PLATEAU-1) && this.tableau[posX][i].toString() == "NullObject") {
-                    this.tableau[posX][i+1] = moveElement;
+                    this.tableau[posX][i] = moveElement;
                     break;
                 }
             }
@@ -261,7 +268,7 @@ class Plateau {
                 
                 moveElement = tmp;
                 if(i > 0 && this.tableau[posX][i].toString() == "NullObject") {
-                    this.tableau[posX][i-1] = moveElement;
+                    this.tableau[posX][i] = moveElement;
                     break;
                 }
             }
