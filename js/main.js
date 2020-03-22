@@ -57,5 +57,5 @@ function initGame() {
     
     partie.actualiserTour(joueurCourant);
 }
-if(session.length == 0) window.location.replace("index.php");
+if(session.length == 0) window.location.replace("index.html");
 initGame();

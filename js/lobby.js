@@ -27,7 +27,7 @@ function displayParties() {
 }
 
 $(document).ready(function () {
-    if(session.length == 0) window.location.replace("index.php");
+    if(session.length == 0) window.location.replace("index.html");
     displayParties();
     if(session["admin"] == false || session.length == 0) {
         $("#admin_supp").hide();

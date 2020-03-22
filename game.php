@@ -83,7 +83,7 @@
                 <button class="btn btn-dark" id="bouton_tourner_pion">Tourner pion</button>
                 <button class="btn btn-dark" id="bouton_enlever_pion">Enlever pion</button>
                 <button class="btn btn-dark" id="bouton_pousser_pion">Pousser pion</button>
-                <a class="btn btn-dark" href="lobby.php">Quitter</a>
+                <a class="btn btn-dark" href="lobby.html">Quitter</a>
             </div>
         </div>
 
@@ -102,7 +102,6 @@
     <script src="js/Partie.js"></script>
     <script src="js/convertFromJson.js"></script>
     <script src="js/init.js"></script>
-    <!-- <script src="js/lobby.js"></script> -->
     <script src="js/main.js"></script>
     
 </html>

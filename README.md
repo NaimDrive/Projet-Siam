@@ -8,14 +8,27 @@ Projet P-WEB 2020
         https://github.com/NaimDrive/Projet-Siam
 ```
 
-### Choix techniques
-// Développer sur les choix    
+## I. Choix techniques
+D'un point de vue technique, les technologies utilisées sont :
+- SQLITE3
+- PHP
+- Javascript (Avec JQuery)
+- HTML (Avec Bootstrap)
+
+Nous nous sommes orientés sur une application web dynamique, privilégiant le confort de l'utilisateur.
+De ce fait, le serveur est peu sollicité. 
 
 
-### L'architecture choisie
-// Parler du "framework"
+## II. L'architecture choisie
 
-### La base de données
+Le projet est divisé en trois grandes parties :
+- Modèle (.ajax.php)
+- Vue (.html)
+- Contrôleur (.js)
+
+Cette architecture a l'avantage de permettre le transit de données de manière dynamique avec l'utilisateur.
+
+## III. La base de données
 
 La base de données est composée de deux tables.
 
@@ -32,7 +45,7 @@ La base de données est composée de deux tables.
     joueurCourant INTEGER NOT NULL DEFAULT: 1
 
 
-##### Informations utiles
+### Informations utiles
     Login       Mot de passe      Admin
     --------------------------------------
     admin       password            1
@@ -42,3 +55,41 @@ La base de données est composée de deux tables.
     Jeune       pokemon             0
     Alexandre   bg                  1
 
+## IV. Utilisateur et admin
+
+Tout utilisateur (et donc, admin) peut:
+- Se connecter
+- Modifier son mot de passe
+- Visualiser les parties disponibles
+- Créer une partie
+- Rejoindre une partie (à condition qu'il y est de la place)
+- Jouer
+- Se déconnecter
+
+L'admin peut quant à lui :
+- Créer un compte joueur
+- Visualiser toutes les parties existantes
+- Supprimer n'importe quel partie
+- Rejoindre une partie pleine en tant que spectateur
+
+## V. Comment jouer
+
+`Toutes les actions, tel que la sélection d'un pion ou d'une case, se font en cliquant.`
+
+### Placer ou déplacer un pion
+Pour cela il suffit de :
+1. Sélectionner un pion
+2. Sélectionner une case
+3. Appuyer sur le button `Déplacer/Placer pion`
+
+### Tourner un pion
+1. Sélectionner un pion sur le plateau
+2. Appuyer sur le button `Tourner pion`
+
+### Enlever pion
+1. Sélectionner un pion sur le plateau
+2. Appuyer sur le button `Enlever pion`
+
+### Pousser pion
+1. Sélectionner un pion sur le plateau
+2. Appuyer sur le button `Pousser pion`
