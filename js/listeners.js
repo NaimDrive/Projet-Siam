@@ -116,7 +116,9 @@ function initPlateauListener() {
                 if(caseCourante != null) {
                     caseCourante.removeClass("caseSelected");
                 }
-                removePionSelectedClass();
+                if(pionCourant == undefined) {
+                    removePionSelectedClass();
+                }
                 caseCourante = $(this);
                 caseCourante.addClass("caseSelected");
                 console.log($(this).attr('id'));
