@@ -1,8 +1,10 @@
 <?php
-// Si tu as sqlite3 n'est pas supporter fait la ligne de commande :
+
+// FICHIER A UTILISER UNIQUEMENT EN CAS DE CORRUPTION DE LA BDD
+
+// Si sqlite3 n'est pas supporter, faire la ligne de commande :
 //          sudo apt-get install php-sqlite3
   $dbname = "siam.db";
-//   $flags = "SQLITE3_OPEN_READWRITE";
 
   if(!class_exists('SQLite3')) {
     die("SQLite 3 NOT supported.");
