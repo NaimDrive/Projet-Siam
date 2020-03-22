@@ -1,5 +1,4 @@
 function initLayout(session) {
-    console.log("initLayout");
     $(document).ready(function () {
         
         if(Array.isArray(session) && session.length == 0 || session == null) {

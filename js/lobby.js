@@ -9,7 +9,6 @@ function displayParties() {
     }).done(function(response) {
         $("#game_selected").empty();
         response = JSON.parse(response);
-        console.log(response);
         if(Object.keys(response).length == 0) return;
         data = response[0]["data"];
         var index = 1;
@@ -17,9 +16,6 @@ function displayParties() {
             var nbPlace = (elt["data"]["joueur2"]["username"] == "" ? "(1/2)" : "(2/2)");
             var participe = elt["data"]["joueur2"]["username"] == session["username"] || elt["data"]["joueur1"]["username"] == session["username"];
             var acces = (nbPlace == "(1/2)") || participe || session["admin"];
-            console.log("www");
-            console.log(nbPlace + " - " + participe + " - " + acces);
-            console.log("^^^"); 
             var htmlText = (index) + " . «"+decodeURI(elt["nom"])+"» de "+elt["data"]["joueur1"]["username"] + " " + nbPlace;
             if(acces) {
                 $("#game_selected").append("<option value='"+elt["id"]+"'>"+htmlText+"</option>");
@@ -47,7 +43,6 @@ $(document).ready(function () {
                     type: "POST",
                     dataTyp1e: 'json'
                 }).done(function(response) {
-                    console.log(response);
                     displayParties();
                 });
             }
@@ -78,7 +73,6 @@ $("#creerPartieForm").submit(function(e) {
     joueur1.setUserID(session["id"]);
     var partie = new Partie(plateau, joueur1, joueur2);
     values["data"] = partie;
-    console.log(partie);
 
     $.ajax({
         method: "POST",
@@ -94,9 +88,5 @@ $("#creerPartieForm").submit(function(e) {
       } else {
         alert("Erreur !");
       }
-      console.log("ajax done !");
-      console.log("Result :");
-      console.log(response);
     });
-
 });

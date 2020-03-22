@@ -29,7 +29,6 @@ $("#inscription_form").submit(function(e) {
     if(formIsOK("#username_sub", "#password_sub", "#password_conf")) {
         values["admin"] = (values["admin"] == "on" ? 1 : 0);
         
-        console.log(values);
         $.ajax({
             method: "POST",
             url: "ajax/users.ajax.php?act=Inscription",

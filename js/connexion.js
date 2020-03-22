@@ -4,7 +4,6 @@ function clearCoFields() {
 
 function clearPasswFields() {
     clearFields("#new_passw", "#new_pass_conf");
-    // $("#password_form")[0].reset();
 }
 
 $("#connexion_form").submit(function(e) {
@@ -12,12 +11,6 @@ $("#connexion_form").submit(function(e) {
     clearCoFields();
 
     var values = convertFormData($(this).serialize());
-
-    console.log($(this).attr("method"));
-    console.log(values);
-
-    console.log("username : " + $("#username_co").val());
-    console.log("password : " + $("#password_co").val());
 
     if($("#username_co").val() == "") {
         isInvalid("#username_co");
@@ -27,12 +20,10 @@ $("#connexion_form").submit(function(e) {
             isInvalid("#password_co");
         } else {
             isValid("#password_co");
-
         }
     }
 
     if(formIsOK("#username_co", "#password_co")) {
-        // console.log(values);
         $.ajax({
             method: "POST",
             url: "ajax/users.ajax.php?act=Connect",
@@ -42,12 +33,10 @@ $("#connexion_form").submit(function(e) {
         }).done(function(response) {
             if(response != "false") {
                 location.reload();
-                // console.log(response);
             } else {
                 areInvalid("#username_co", "#password_co");
                 alert("Identifiant incorrect !");
             }
-            // console.log(response);
         });
     }
 });
@@ -68,12 +57,8 @@ $("#password_form").submit(function(e) {
     let values = convertFormData($(this).serialize());
     values["user"] = $("#current_user").text();
 
-    console.log(values);
-
     if(values["new_passw"] === values["new_pass_conf"] && values["new_passw"] !== "") {
-        areValid("#new_passw", "#new_pass_conf")
-        // $("#passw_close").click();
-        // clearPasswFields();
+        areValid("#new_passw", "#new_pass_conf");
 
         $.ajax({
             method: "POST",

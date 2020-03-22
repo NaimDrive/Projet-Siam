@@ -14,9 +14,7 @@ function tableauFromJSON(json) {
 
     json["tableau"].forEach(function(e, i) {
         tmp_tab.push(new Array());
-        // console.log(e);
         e.forEach(function(ee, j) {
-            
             if(ee["image"]["images"][0] == "") {
                 tmp_tab[i].push(new NullObject(ElementPlateau.NULL_OBJECT, i, j));
             } else if(ee["image"]["images"][0].includes("rocher")) {

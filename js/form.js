@@ -29,8 +29,6 @@ function formIsOK(...args) {
         }
     });
 
-    console.log("return : " + ok);
-
     return ok;
 
 }

@@ -5,8 +5,6 @@ function placerPionListener() {
 
     $("#bouton_placer_pion").click(function() {
         if(joueurCourant != null && pionCourant != null && caseCourante != null) {
-            // console.log(caseCourante);
-            // console.log(pionCourant);
             let ids = caseCourante.attr('id').split('_');
             let i = parseInt(ids[1]);
             let j = parseInt(ids[2]);
@@ -115,9 +113,7 @@ function initPlateauListener() {
                 }
                 caseCourante = $(this);
                 caseCourante.addClass("caseSelected");
-                console.log($(this).attr('id'));
                 let pos = $(this).attr('id').split('_');
-                console.log(plateau.getPion(pos[1], pos[2]));
                 var tmp = plateau.getPion(pos[1], pos[2]);
                 if(tmp.toString() != "NullObject" && tmp.getImageToDisplay().includes(joueurCourant.getId(), -6)) {
                     pionCourant = tmp;
