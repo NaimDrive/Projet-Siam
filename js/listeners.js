@@ -15,6 +15,8 @@ function placerPionListener() {
                 let yC = parseInt(pionCourant.getY());
 
                 if(pionCourant.place == false || ((xC == i-1 && yC == j) || (xC == i+1 && yC == j) || (xC == i && yC == j-1) || (xC == i && yC == j+1))) {
+                    removePionSelectedClass()
+                    caseCourante.addClass("pionSelected");
                     plateau.placerPion(pionCourant, i, j);
                     refresh();
                     initPlayerImagesListener(joueurCourant);
@@ -32,25 +34,15 @@ function placerPionListener() {
 function enleverPionListener() {
 
     $("#bouton_enlever_pion").click(function() {
-        /*if(pionCourant != null && caseCourante != null) {
-            let ids = caseCourante.attr('id').split('_');
-            let i = ids[1];
-            let j = ids[2];
-            console.log("pionCourant : " + pionCourant);
-            console.log("caseCourante : " + caseCourante.attr("id"));
-            if(plateau.tableau[i][j].toString() == "Animaux") {
-                plateau.enleverPion(pionCourant);
-                refresh();
-                initPlayerImagesListener(joueurCourant);
-            }
-        } */
-        // let pos = caseCourante.attr('id').split('_');
-        // let pion = plateau.getPion(pos[1], pos[2]);
-        plateau.enleverPion(pionCourant);
-        refresh();
-        initPlayerImagesListener(joueurCourant);
-        // partie.changementDeTour();
-        // savePartie();
+        if(pionCourant != undefined) {
+            plateau.enleverPion(pionCourant);
+            refresh();
+            initPlayerImagesListener(joueurCourant);
+            caseCourante.removeClass("pionSelected");
+            pionCourant = undefined;
+            // partie.changementDeTour();
+            // savePartie();
+        }
     });
 }
 
@@ -60,18 +52,15 @@ function enleverPionListener() {
 function tournerPionListener() {
 
     $("#bouton_tourner_pion").click(function() {
-        /*if(pionCourant != null) {
-            pionCourant.rotationDroite();
+        if(pionCourant != undefined){
+            let pos = caseCourante.attr('id').split('_');
+            let pion = plateau.getPion(pos[1], pos[2]);
+            pion.rotationDroite();
             refresh();
             initPlayerImagesListener(joueurCourant);
-        }*/
-        let pos = caseCourante.attr('id').split('_');
-        let pion = plateau.getPion(pos[1], pos[2]);
-        pion.rotationDroite();
-        refresh();
-        initPlayerImagesListener(joueurCourant);
-        // partie.changementDeTour();
-        // savePartie();
+            // partie.changementDeTour();
+            // savePartie();
+        }
     });
 }
 
@@ -83,6 +72,8 @@ function pousserPionListener() {
             plateau.pousser(joueurCourant, autre, pionCourant);
             refresh();
             initPlayerImagesListener(joueurCourant);
+            removePionSelectedClass();
+            $("#case_"+pionCourant.getX()+"_"+pionCourant.getY()).addClass("pionSelected");
             // partie.changementDeTour();
             // savePartie();
         }
@@ -104,6 +95,7 @@ function initPlayerImagesListener(joueur) {
                 imageCourante.removeClass("selected");
             }
             if(joueurCourant == joueur) {
+                removePionSelectedClass();
                 pionCourant = joueur.getPion(i);
                 imageCourante = $(this);
                 imageCourante.addClass("selected");
@@ -124,6 +116,7 @@ function initPlateauListener() {
                 if(caseCourante != null) {
                     caseCourante.removeClass("caseSelected");
                 }
+                removePionSelectedClass();
                 caseCourante = $(this);
                 caseCourante.addClass("caseSelected");
                 console.log($(this).attr('id'));
@@ -131,10 +124,15 @@ function initPlateauListener() {
                 console.log(plateau.getPion(pos[1], pos[2]));
                 var tmp = plateau.getPion(pos[1], pos[2]);
                 if(tmp.toString() != "NullObject" && tmp.getImageToDisplay().includes(joueurCourant.getId(), -6)) {
-                    console.log("v");
+                    /*console.log("v");
                     console.log(tmp.getImageToDisplay().includes(joueurCourant.getId(), -6));
-                    console.log("^");
+                    console.log($(this));
+                    console.log("^");*/
                     pionCourant = tmp;
+                    caseCourante.addClass("pionSelected");
+                } else if((pionCourant != undefined && tmp.toString() != "NullObject")){
+                    pionCourant = undefined;
+                    removePionSelectedClass();
                 }
             });
         }
@@ -150,5 +148,13 @@ function removeAllListeners() {
 function removeJoueurListeners(id) {
     $("#div-joueur"+id).children().each(function() {
         $(this).off('click');
+    });
+}
+
+function removePionSelectedClass() {
+    $("#div-tableau").children().each(function(){
+        $(this).children().each(function() {
+            $(this).removeClass("pionSelected");
+        });
     });
 }

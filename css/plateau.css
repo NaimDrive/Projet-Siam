@@ -16,6 +16,11 @@ table {
   opacity: 0.5;
 }
 
+.pionSelected {
+  background-color: rgba(4, 99, 7, 0.5) !important;
+  box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.1) inset;
+}
+
 .J1, .J2 {
   color: honeydew;
   font-weight: bolder;
