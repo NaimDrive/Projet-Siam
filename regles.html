@@ -4,38 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/typicons.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" href="/images/logo_header_green.png">
+
+    <title>Règles du jeu</title>
 </head>
 <body>
-
-    <div class="no-overflow" id="yui_3_17_2_1_1582292756584_48"><h1>Sujet &nbsp;v1.0</h1>
-        <h2>Cahier des charges</h2>
-        L'objectif est de créer un site web dynamique qui permet de créer, rejoindre et jouer des parties du jeu Siam.<br><br><h5>Fonctionnement de l'application</h5><b>Authentification</b><br>vous devrez gérer une table des utilisateurs qui contient au départ au moins un administrateur. Les mots de passe seront cryptés.<br><br>un utilisateur (administrateur ou joueur)&nbsp; doit pouvoir<br><ul><li>s'authentifier</li><li>modifier son mot de passe<br></li><li>créer et rejoindre une partie en attente d'un joueur</li><li>visualiser la liste des parties à rejoindre</li><li>visualiser la liste des parties que cet utilisateur a en cours. pour chaque partie, mettre en évidence le joueur dont c'est le tour<br></li><li>jouer un coup dans une partie en cours<br></li><li>se déconnecter</li></ul><br><p>un administrateur doit pouvoir:</p><ul><li>créer un compte joueur</li><li>jouer dans n'importe quelle partie quelque soit le joueur actif<br></li><li>supprimer une partie en cours</li></ul><b>Jeu Siam</b><br><p>vous
-         devrez gérer une table des parties. Modéliser le plateau de jeu pour stocker les informations de pièces et de direction.<br></p><p>la page du jeu:</p><ul><li> affiche le plateau dans sa configuration actuelle</li><li>indique le joueur dont c'est le tour</li><li>affiche le nombre de pièces en réserve pour chaque joueur</li><li>met en évidence la dernière pièce à avoir été déplacée<br></li><li>si c'est au joueur actif de jouer, lui propose de sélectionner une pièce du plateau ou de la réserve (toutes mises en évidence), puis recharge la page.<br></li><li>à l'étape suivante, lui propose de cliquer sur une des zones de destination possibles et mise en évidence, ou d'annuler la sélection initiale, puis recharge la page.<br></li></ul><p><br></p><p>il faut bien sûr tester les conditions de victoire et détecter la fin de partie!<br></p><br><h5>bonus: ajax</h5>plutôt que recharger la page lorsqu'on sélectionne une pièce à déplacer, on pourra demander au serveur la liste des cases possibles en ajax, de manière à proposer les cases de destination possibles sans rechargement (donc modification des zones de sélection en javascript).<p></p>
-        <p><span style="font-size: 1.5em; font-weight: bold;">Contraintes techniques</span></p>
-        <p>L'application 3-tiers devra utiliser les technologies suivantes :</p>
-        <ol>
-            <li>Côté client JavaScript et <a href="https://jquery.com/">jquery</a>&nbsp;+ HTML5 + CSS (bootstrap autorisé).</li>
-            <li>La partie serveur se fera en PHP 7 <span>(</span><strong>sans</strong><span>&nbsp;framework)</span></li>
-            <li>La base de données sera SQLite3&nbsp;</li>
-        </ol>
-        <p>Toute utilisation d'une bibliothèque/API/framework annexe devra être validée au préalable par l'enseignant (ou si vous voulez gagner du temps: la réponse est non)<br></p>
-        <p>D'un point de vue sécurité, toute injection de code trop aisée sera sévèrement sanctionnée.</p>
-        <p>Les projets doivent pouvoir fonctionner sur les machines des salles TP.</p>
-        <h2>Infos pratiques</h2>
-        <ul>
-            <li>Date de rendu du projet : 22 mars</li><li>Projet à réaliser en binôme, sauf autorisation explicite</li><li>composition des binômes à me communiquer par mail avant le 5 mars<br></li>
-            <li>Un mini rapport technique (README.md en markdown) devra être constitué reprenant, outre le nom des membres du binôme :</li>
-            <ol>
-                <li>les choix techniques</li>
-                <li>l'architecture choisie</li>
-                <li>un schéma de la base de données</li>
-            </ol>
-        </ul>
-        <h2>Changelog</h2>
-        <ul>
-            <li>v1.0 – version initiale</li>
-        </ul>
+    <div class="container" style="min-height: 80vh;">
+        <div class="d-flex" style="min-height: 80vh;">
+            <iframe src="siam_regles.pdf" class="w-100" height="auto"></iframe>
+        </div>
     </div>
 </body>
 </html>
+<script src="js/jquery3.4.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/layout.js"></script>
