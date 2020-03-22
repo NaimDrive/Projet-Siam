@@ -80,23 +80,23 @@ L'admin peut quant à lui :
 Pour cela il suffit de :
 1. Sélectionner un pion
 2. Sélectionner une case
-3. Appuyer sur le button `Déplacer/Placer pion`
+3. Appuyer sur le bouton `Déplacer/Placer pion`
 
 ### Tourner un pion
 1. Sélectionner un pion sur le plateau
-2. Appuyer sur le button `Tourner pion`
+2. Appuyer sur le bouton `Tourner pion`
 
 ### Enlever pion
 1. Sélectionner un pion sur le plateau
-2. Appuyer sur le button `Enlever pion`
+2. Appuyer sur le bouton `Enlever pion`
 
 ### Pousser pion
 1. Sélectionner un pion sur le plateau
-2. Appuyer sur le button `Pousser pion`
+2. Appuyer sur le bouton `Pousser pion`
 
 ## VI. Lancer le projet
 
-Le jeu requiert un serveur supportant PHP ainsi que SQLITE4.
+Le jeu requiert un serveur supportant PHP ainsi que SQLITE3.
 
 #### Solution n°1
 Utiliser un WAMP (MAMP sur Mac, ou LAMP sur Linux).
