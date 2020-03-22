@@ -31,7 +31,7 @@ class Partie {
             removeAllListeners();
         }
         $("#tour_joueur").empty();
-        $("#tour_joueur").text(joueurCourant.getUsername() + " (J"+joueurCourant.getId()+")");
+        $("#tour_joueur").html("<i><u>"+joueurCourant.getUsername() + " (J"+joueurCourant.getId()+")</u></i>");
     }
 
     changementDeTour() {

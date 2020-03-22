@@ -79,7 +79,7 @@
 
         <div class="container p-3">
             <div class="d-flex justify-content-center btn-group">
-                <button class="btn btn-dark" id="bouton_placer_pion">Placer pion</button>
+                <button class="btn btn-dark" id="bouton_placer_pion">Déplacer/Placer pion</button>
                 <button class="btn btn-dark" id="bouton_tourner_pion">Tourner pion</button>
                 <button class="btn btn-dark" id="bouton_enlever_pion">Enlever pion</button>
                 <button class="btn btn-dark" id="bouton_pousser_pion">Pousser pion</button>

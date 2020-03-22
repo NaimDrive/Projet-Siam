@@ -43,17 +43,18 @@ function initGame() {
     getPartie();
     
     refresh();
-    
-    // joueurCourant = joueur2;
-    
+        
     initPlateauListener();
     initButtonListener();
     initPlayerImagesListener(joueur1);
     initPlayerImagesListener(joueur2);
+
     if(joueur2.getUsername() == null && joueur1.getUsername() != session["username"]) {
       joueur2.setUsername(session["username"]);
       joueur2.setUserID(session["id"]);
+      savePartie();
     }
+    
     partie.actualiserTour(joueurCourant);
 }
 if(session.length == 0) window.location.replace("index.php");
