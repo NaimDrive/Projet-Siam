@@ -93,3 +93,20 @@ Pour cela il suffit de :
 ### Pousser pion
 1. Sélectionner un pion sur le plateau
 2. Appuyer sur le button `Pousser pion`
+
+## VI. Lancer le projet
+
+Le jeu requiert un serveur supportant PHP ainsi que SQLITE4.
+
+#### Solution n°1
+Utiliser un WAMP (MAMP sur Mac, ou LAMP sur Linux).
+
+### Solution n°2
+Vous pouvez lancer un serveur via une ligne de commande. Cela nécessite l'installation de php et sqlite3 pour php (`sudo apt-get install php-sqlite3`).
+
+Rendez-vous à la racine du projet et executez la commande suivante :
+-  `php -S 127.0.0.1:8000`
+
+Ensuite, dans votre navigateur, entrez dans l'URL `http://127.0.0.1:8000/`
+
+Et vous pouvez jouer !
