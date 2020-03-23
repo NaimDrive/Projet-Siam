@@ -62,7 +62,7 @@ Tout utilisateur (et donc, admin) peut:
 - Modifier son mot de passe
 - Visualiser les parties disponibles
 - Créer une partie
-- Rejoindre une partie (à condition qu'il y est de la place)
+- Rejoindre une partie (à condition qu'il y ai de la place)
 - Jouer
 - Se déconnecter
 
